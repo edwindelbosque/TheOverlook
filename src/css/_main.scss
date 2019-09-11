@@ -1,0 +1,48 @@
+nav {
+  width: 100%;
+  height: 40px;
+  padding: 0 8%;
+  background-image: linear-gradient(to right, $accent-nav , darken($accent-nav, 4%));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  justify-content: flex-end;
+  width: 500px;
+  align-items: center;
+}
+
+li {
+  font-family: $body-font;
+  font-size: 22px;
+  color: $text-color;
+  list-style-type: none;
+  font-weight: 500;
+  padding: 1px 20px;
+  border-bottom: solid 3px #00000000;
+  border-top: solid 4px #00000000;
+
+  &:hover {
+    border-bottom-color: darken($accent-nav, 30%);
+    background-color: lighten($accent-nav, 12%);
+    transition: .25s;
+  }
+}
+
+.customer-tab {
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.50);
+  display: flex;
+  height: 40px;
+  width: 100;
+  align-items: center;
+  padding: 0 8%;
+  position: relative;
+  z-index: -1;
+
+  h3 {
+    padding-top: 4px;
+  }
+}

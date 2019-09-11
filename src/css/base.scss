@@ -9,10 +9,24 @@
 }
 
 body {
-  background-color: $background;
-  font-family: $body;
+  background-color: $background-color;
+  font-family: $body-font;
   margin: 0;
   padding: 0;
+}
+
+h2 {
+  font-family: $logo-font;
+  font-weight: 800;
+  font-size: 32px;
+  color: $text-color;
+}
+
+h3 {
+  font-family: $body-font;
+  color: $text-color;
+  font-size: 25px;
+  font-weight: 500;
 }
 
 .wave-image {

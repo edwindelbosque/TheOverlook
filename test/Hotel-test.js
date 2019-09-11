@@ -5,10 +5,11 @@ const expect = chai.expect;
 
 let hotel;
 
+beforeEach(() => {
+  hotel = new Hotel(data);
+});
+
 describe('Hotel', () => {
-  beforeEach(function () {
-    hotel = new Hotel(data);
-  });
 
   it('should be a function', () => {
     expect(Hotel).to.be.a('function');

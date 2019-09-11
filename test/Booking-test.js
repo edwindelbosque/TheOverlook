@@ -6,11 +6,12 @@ const expect = chai.expect;
 
 let hotel, booking, guest;
 
+beforeEach(() => {
+  hotel = new Hotel(data);
+  booking = new Booking();
+});
+
 describe('Booking', () => {
-  beforeEach(function () {
-    hotel = new Hotel(data);
-    booking = new Booking();
-  });
 
   it('should be a function', () => {
     expect(Booking).to.be.a('function');
