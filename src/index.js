@@ -35,8 +35,8 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServ
   .catch(err => console.log('Unable to fetch the data', err));
 
 // Show the first tab by default
-$('.tabs-stage div').hide();
-$('.tabs-stage div:first').show();
+$('.tabs-stage div').fadeOut(100);
+$('.tabs-stage div:first').delay(100).fadeIn(100);
 $('.tabs-nav li:first').addClass('tab-active');
 
 // Change tab class and display content
@@ -44,6 +44,6 @@ $('.tabs-nav a').on('click', function (event) {
   event.preventDefault();
   $('.tabs-nav li').removeClass('tab-active');
   $(this).parent().addClass('tab-active');
-  $('.tabs-stage div').hide();
-  $($(this).attr('href')).show();
+  $('.tabs-stage div').fadeOut(100);
+  $($(this).attr('href')).delay(100).fadeIn(100);
 });

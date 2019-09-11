@@ -6,7 +6,7 @@ const expect = chai.expect;
 let hotel;
 
 beforeEach(() => {
-  hotel = new Hotel(data);
+  hotel = new Hotel();
 });
 
 describe('Hotel', () => {

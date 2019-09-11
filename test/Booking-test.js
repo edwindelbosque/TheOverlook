@@ -7,7 +7,7 @@ const expect = chai.expect;
 let hotel, booking, guest;
 
 beforeEach(() => {
-  hotel = new Hotel(data);
+  hotel = new Hotel();
   booking = new Booking();
 });
 
