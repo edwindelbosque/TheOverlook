@@ -1,6 +1,23 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+@import 'variables';
+@import 'main';
+@import 'customers';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  background-color: $primary-background;
+  background-color: $background;
+  font-family: 'Avenir Next';
+  margin: 0;
+  padding: 0;
+}
+
+.wave-image {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
 }
