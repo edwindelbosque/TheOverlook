@@ -9,22 +9,35 @@
 <body>
   <nav>
     <h2>Overlook</h2>
-    <ul>
-      <li>Main</li>
-      <li>Orders</li>
-      <li>Rooms</li>
-      <li>Customers</li>
+    <ul class="tabs-nav">
+      <li><a href="#tab-main">Main</a></li>
+      <li><a href="#tab-orders">Orders</a></li>
+      <li><a href="#tab-rooms">Rooms</a></li>
+      <li><a href="#tab-customers">Customers</a></li>
     </ul>
   </nav>
   <section class="customer-tab">
     <h3>Currently Viewing — Khalid Williams</h3>
   </section>
-  <main>
-    <button>Search customer</button>
-    <br>
-    <br>
-    <button>Add customer</button>
-  </main>
+  <section class="tabs-stage">
+    <div id="tab-main">
+      <h1>Main</h1>
+    </div>
+    <div id="tab-orders">
+      <h1>Orders</h1>
+    </div>
+    <div id="tab-rooms">
+      <h1>Rooms</h1>
+    </div>
+    <div id="tab-customers">
+      <h1>Customers</h1>
+      <button>Search customer</button>
+      <br>
+      <br>
+      <button>Add customer</button>
+    </div>
+  </section>
+
   <img src="./images/wave-image.png" class="wave-image">
 </body>
 
