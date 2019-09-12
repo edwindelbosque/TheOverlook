@@ -8,7 +8,10 @@ import DOMupdates from './DOMupdates';
 import './images/wave-image.png';
 import './images/favicon.png';
 
-let customers, rooms, bookings, roomServices, hotel, guest, booking;
+const DOMdate = $('#date');
+let customers, rooms, bookings, services, hotel, guest, booking;
+
+displayCurrentDate(getToday());
 
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
   .then(response => response.json())
@@ -30,9 +33,14 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
 
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices')
   .then(response => response.json())
-  .then(data => roomServices = data.roomServices)
-  .then(() => console.log('roomServices', roomServices))
+  .then(data => services = data.roomServices)
+  .then(() => console.log('roomServices', services))
   .catch(err => console.log('Unable to fetch the data', err));
+
+setTimeout(() => {
+  hotel = new Hotel(customers, bookings, services, rooms)
+  console.log(hotel);
+}, 1000);
 
 // Show the first tab by default
 $('.tabs-stage div').fadeOut(100);
@@ -47,3 +55,25 @@ $('.tabs-nav a').on('click', function (event) {
   $('.tabs-stage div').fadeOut(100);
   $($(this).attr('href')).delay(100).fadeIn(100);
 });
+
+function getToday() {
+  let today = new Date();
+  let dd = today.getDate();
+  let mm = today.getMonth() + 1;
+  let yyyy = today.getFullYear();
+
+  if (dd < 10) {
+    dd = '0' + dd;
+  }
+
+  if (mm < 10) {
+    mm = '0' + mm;
+  }
+
+  today = `${yyyy}/${mm}/${dd}`;
+  return today;
+}
+
+function displayCurrentDate(day) {
+  DOMdate.text(`${new Date(day).toString().slice(0, 10)}`);
+}
