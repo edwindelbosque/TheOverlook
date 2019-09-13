@@ -19,25 +19,21 @@ displayCurrentDate(getToday());
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
   .then(response => response.json())
   .then(data => customers = data.users)
-  .then(() => console.log('customers', customers))
   .catch(err => console.log('Unable to fetch the data', err));
 
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
   .then(response => response.json())
   .then(data => rooms = data.rooms)
-  .then(() => console.log('rooms', rooms))
   .catch(err => console.log('Unable to fetch the data', err));
 
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
   .then(response => response.json())
   .then(data => bookings = data.bookings)
-  .then(() => console.log('bookings', bookings))
   .catch(err => console.log('Unable to fetch the data', err));
 
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices')
   .then(response => response.json())
   .then(data => services = data.roomServices)
-  .then(() => console.log('roomServices', services))
   .catch(err => console.log('Unable to fetch the data', err));
 
 setTimeout(() => {
@@ -103,5 +99,11 @@ $('#add-customer-button').on('click', () => {
 })
 
 $('#submit-search-button').on('click', () => {
-
+  hotel.user.findUser($('#search-customer-input').val())
 })
+
+$('#search-customer-input').on('keypress', function (e) {
+  if (e.which === 13) {
+    hotel.user.findUser($('#search-customer-input').val())
+  }
+});

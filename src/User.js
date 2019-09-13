@@ -1,3 +1,5 @@
+import DOMupdates from '../src/DOMupdates.js';
+
 class User {
   constructor(userData) {
     this.userData = userData;
@@ -6,10 +8,16 @@ class User {
     this.totalUsers = userData.length;
   }
 
-  findUser(id) {
-    let user = this.userData.find(user => user.id === id);
-    this.name = user.name;
-    this.id = user.id;
+  findUser(name) {
+    let user = this.userData
+      .find(user => user.name.toUpperCase() === name.toUpperCase());
+    if (user) {
+      this.name = user.name;
+      this.id = user.id;
+      DOMupdates.displayUser(this.name);
+    } else {
+      DOMupdates.displayUserReset()
+    }
   }
 
   addUser(name) {

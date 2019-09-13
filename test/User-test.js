@@ -6,11 +6,14 @@ import bookingData from '../data/bookings.js'
 import roomData from '../data/rooms.js'
 import userData from '../data/users.js'
 import roomServiceData from '../data/roomServices.js'
+import spies from 'chai-spies'
+chai.use(spies);
 const expect = chai.expect;
 
 let hotel, user;
 
 beforeEach(() => {
+  chai.spy.on(DOMupdates, ['displayUser', 'displayUserReset'], () => true);
   hotel = new Hotel(userData, bookingData, roomServiceData, roomData);
   user = new User(userData);
 });
@@ -31,8 +34,8 @@ describe('User', () => {
     expect(user.userData[2]).to.deep.equal({ id: 3, name: "Christian Sporer" })
   });
 
-  it('should find user info by ID', () => {
-    user.findUser(25);
+  it('should find user info by full name', () => {
+    user.findUser('Bianka Russel');
     expect(user.name).to.deep.equal('Bianka Russel');
     expect(user.id).to.deep.equal(25);
   });
@@ -40,6 +43,13 @@ describe('User', () => {
   it('should be able to add a user and update information', () => {
     user.addUser('Edwin Del Bosque');
     expect()
+  });
+
+  it('should call different DOMupdates methods given names on dataset', () => {
+    user.findUser('noemy little')
+    expect(DOMupdates.displayUser).to.have.been.called(1);
+    user.findUser('rijnfirnferj')
+    expect(DOMupdates.displayUserReset).to.have.been.called(1);
   });
 
 });
