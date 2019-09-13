@@ -33,11 +33,11 @@ describe('Booking', () => {
   });
 
   it('should contains all the booking information', () => {
-    expect(booking.bookings.length).to.equal(2001);
+    expect(booking.bookingData.length).to.equal(2001);
   });
 
   it('should be able to show all rooms', () => {
-    expect(booking.rooms.length).to.equal(50);
+    expect(booking.roomData.length).to.equal(50);
   });
 
   it('should be able to show available rooms', () => {

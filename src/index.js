@@ -41,7 +41,8 @@ setTimeout(() => {
   hotel = new Hotel(customers, bookings, services, rooms)
   bookings = new Booking(bookings, rooms);
   bookings.findRoomsAvailable(getToday());
-}, 1000);
+  hotel.getTotalDailyRevenue(getToday());
+}, 2000);
 
 // Show the first tab by default
 $('.tabs-stage div').fadeOut(100);
