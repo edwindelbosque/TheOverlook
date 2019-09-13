@@ -1,4 +1,6 @@
-import DOMupdates from "./DOMupdates";
+import DOMupdates from './DOMupdates';
+import RoomService from './RoomService';
+import Booking from './Booking';
 
 class Hotel {
   constructor(userData, bookingData, roomServiceData, roomData) {
@@ -6,28 +8,12 @@ class Hotel {
     this.bookingData = bookingData;
     this.roomServiceData = roomServiceData;
     this.roomData = roomData;
-  }
-
-  getBookingRevenue(date) {
-    let bookedToday = this.bookingData.filter(booking => booking.date === date)
-    let dailyRevenue = bookedToday.reduce((acc, book) => {
-      acc += this.roomData.find(room => room.number === book.roomNumber).costPerNight;
-      return acc;
-    }, 0);
-    return Math.round(dailyRevenue);
-  }
-
-  getRoomServiceRevenue(date) {
-    let dailyLogs = this.roomServiceData.filter(log => log.date === date);
-    let totalRevenue = dailyLogs.reduce((acc, service) => {
-      acc += service.totalCost;
-      return acc;
-    }, 0)
-    return Math.round(totalRevenue);
+    this.booking = new Booking(bookingData, roomData);
+    this.roomService = new RoomService(roomServiceData);
   }
 
   getTotalDailyRevenue(date) {
-    let overallRevenue = this.getRoomServiceRevenue(date) + this.getBookingRevenue(date);
+    let overallRevenue = (this.roomService.getRoomServiceRevenue(date) + this.booking.getBookingRevenue(date)).toLocaleString();
     DOMupdates.displayOverallRevenue(overallRevenue);
     return overallRevenue;
   }

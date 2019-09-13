@@ -7,6 +7,9 @@ import DOMupdates from './DOMupdates';
 
 import './images/wave-image.png';
 import './images/favicon.png';
+import './images/add-icon.svg';
+import './images/search-icon.svg';
+
 
 const DOMdate = $('#date');
 let customers, rooms, bookings, services, hotel, guest, booking;
@@ -42,7 +45,7 @@ setTimeout(() => {
   bookings = new Booking(bookings, rooms);
   bookings.findRoomsAvailable(getToday());
   hotel.getTotalDailyRevenue(getToday());
-}, 2000);
+}, 1000);
 
 // Show the first tab by default
 $('.tabs-stage div').fadeOut(100);
@@ -79,3 +82,16 @@ function getToday() {
 function displayCurrentDate(day) {
   DOMdate.text(`${new Date(day).toString().slice(0, 10)}`);
 }
+
+$('#search-customer-input').hide();
+$('#add-customer-input').hide();
+
+$('#search-customer-button').on('click', () => {
+  $('#search-customer-input').toggle();
+  $('#add-customer-input').hide();
+})
+
+$('#add-customer-button').on('click', () => {
+  $('#add-customer-input').toggle();
+  $('#search-customer-input').hide();
+})
