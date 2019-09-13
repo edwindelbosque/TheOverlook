@@ -1,9 +1,9 @@
-class Guest {
+class User {
   constructor(userData) {
     this.userData = userData;
     this.name = undefined;
     this.id = undefined;
-    this.totalGuests = userData.length;
+    this.totalUsers = userData.length;
   }
 
   findUser(id) {
@@ -14,10 +14,10 @@ class Guest {
 
   addUser(name) {
     this.name = name;
-    this.id = this.totalGuests + 1;
-    this.userData.push({ id: this.totalGuests, name: this.name })
+    this.id = this.totalUsers + 1;
+    this.userData.push({ id: this.totalUsers, name: this.name })
     this.userData.shift();
   }
 }
 
-export default Guest;
+export default User;

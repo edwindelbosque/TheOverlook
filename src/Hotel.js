@@ -1,7 +1,7 @@
 import DOMupdates from './DOMupdates';
 import RoomService from './RoomService';
 import Booking from './Booking';
-import User from './Booking';
+import User from './User';
 
 class Hotel {
   constructor(userData, bookingData, roomServiceData, roomData) {

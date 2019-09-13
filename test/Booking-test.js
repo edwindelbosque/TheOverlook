@@ -9,7 +9,7 @@ import roomServiceData from '../data/roomServices.js'
 const expect = chai.expect;
 import spies from 'chai-spies'
 chai.use(spies);
-let hotel, booking, guest;
+let hotel, booking, user;
 
 beforeEach(() => {
   chai.spy.on(DOMupdates, ['displayRoomsAvailable'], () => true);

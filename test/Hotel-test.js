@@ -1,17 +1,17 @@
 import Hotel from '../src/Hotel';
 // import Booking from '../src/Booking';
 import DOMupdates from '../src/DOMupdates.js';
-import bookingData from '../data/bookings.js'
-import roomData from '../data/rooms.js'
-import userData from '../data/users.js'
 import spies from 'chai-spies'
 chai.use(spies);
 import chai from 'chai';
 // import RoomService from '../src/RoomService';
+import bookingData from '../data/bookings.js'
+import roomData from '../data/rooms.js'
+import userData from '../data/users.js'
 import roomServiceData from '../data/roomServices.js'
 const expect = chai.expect;
 
-let hotel, booking, guest, roomService;
+let hotel, booking, user, roomService;
 
 beforeEach(() => {
   chai.spy.on(DOMupdates, ['displayOverallRevenue'], () => true);

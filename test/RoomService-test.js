@@ -11,7 +11,7 @@ import RoomService from '../src/RoomService';
 import roomServiceData from '../data/roomServices.js'
 const expect = chai.expect;
 
-let hotel, booking, guest, roomService;
+let hotel, booking, user, roomService;
 
 beforeEach(() => {
   // chai.spy.on(DOMupdates, ['displayRoomsAvailable'], () => true);

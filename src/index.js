@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import './css/base.scss';
 import Hotel from './Hotel';
-import Guest from './Guest';
+import User from './User';
 import Booking from './Booking';
 import DOMupdates from './DOMupdates';
 
@@ -12,7 +12,7 @@ import './images/search-icon.svg';
 
 
 const DOMdate = $('#date');
-let customers, rooms, bookings, services, hotel, guest, booking;
+let customers, rooms, bookings, services, hotel, user, booking;
 
 displayCurrentDate(getToday());
 
@@ -100,4 +100,8 @@ $('#add-customer-button').on('click', () => {
   $('#submit-add-button').toggle();
   $('#search-customer-input').hide();
   $('#submit-search-button').hide();
+})
+
+$('#submit-search-button').on('click', () => {
+
 })
