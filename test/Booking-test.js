@@ -46,7 +46,11 @@ describe('Booking', () => {
 
   it('should call function to show available rooms on DOM', () => {
     booking.findRoomsAvailable('2019/09/12')
-    expect(DOMupdates.displayRoomsAvailable).to.have.been.called(1)
+    expect(DOMupdates.displayRoomsAvailable).to.have.been.called(1);
+  });
+
+  it('should display total daily revenue from bookings', () => {
+    expect(booking.getBookingRevenue('2019/09/12')).to.equal(6184);
   });
 
 });

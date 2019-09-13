@@ -12,12 +12,13 @@ class Booking {
     return percentage;
   }
 
-  getTodaysRevenue(date) {
+  getBookingRevenue(date) {
     let bookedToday = this.bookings.filter(booking => booking.date === date)
-    return bookedToday.reduce((acc, book) => {
+    let dailyRevenue = bookedToday.reduce((acc, book) => {
       acc += this.rooms.find(room => room.number === book.roomNumber).costPerNight;
       return acc;
-    }, 0)
+    }, 0);
+    return Math.round(dailyRevenue);
   }
 }
 

@@ -6,6 +6,10 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  h2 {
+    padding-top: 3px;
+  }
 }
 
 ul {
