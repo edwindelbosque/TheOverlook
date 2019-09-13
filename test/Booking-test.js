@@ -9,7 +9,6 @@ import roomServiceData from '../data/roomServices.js'
 const expect = chai.expect;
 import spies from 'chai-spies'
 chai.use(spies);
-
 let hotel, booking, guest;
 
 beforeEach(() => {
