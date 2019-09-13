@@ -13,6 +13,7 @@ chai.use(spies);
 let hotel, booking, guest;
 
 beforeEach(() => {
+  chai.spy.on(DOMupdates, ['displayRoomsAvailable'], () => true);
   hotel = new Hotel(userData, bookingData, roomServiceData, roomData);
   booking = new Booking(bookingData, roomData);
 });

@@ -39,7 +39,8 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServ
 
 setTimeout(() => {
   hotel = new Hotel(customers, bookings, services, rooms)
-  console.log(hotel);
+  bookings = new Booking(bookings, rooms);
+  bookings.findRoomsAvailable(getToday());
 }, 1000);
 
 // Show the first tab by default
