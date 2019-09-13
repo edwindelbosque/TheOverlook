@@ -89,6 +89,8 @@ $('#search-customer-button').on('click', () => {
   $('#submit-search-button').toggle();
   $('#add-customer-input').hide();
   $('#submit-add-button').hide();
+  $('#search-customer-input').val('');
+  $('#add-customer-input').val('');
 })
 
 $('#add-customer-button').on('click', () => {
@@ -96,6 +98,8 @@ $('#add-customer-button').on('click', () => {
   $('#submit-add-button').toggle();
   $('#search-customer-input').hide();
   $('#submit-search-button').hide();
+  $('#search-customer-input').val('');
+  $('#add-customer-input').val('');
 })
 
 $('#submit-search-button').on('click', () => {
