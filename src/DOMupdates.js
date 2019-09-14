@@ -50,7 +50,9 @@ const DOMupdates = {
   },
 
   displayResultsHeader(number) {
-    $('#results-title').text(`${number} Results Found`);
+    number > 0
+      ? $('#results-title').text(`${number} Results Found`)
+      : $('#results-title').text('No results found')
   },
 
   displayResetResults() {
