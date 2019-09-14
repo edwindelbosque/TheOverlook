@@ -20,6 +20,11 @@ const DOMupdates = {
   displayUserNotFound() {
     $('#user-not-found').text('User not found');
     setTimeout(() => $('#user-not-found').text(''), 3000);
+  },
+
+  displayUserAlreadyExists() {
+    $('#user-already-exists').text('User found on records')
+    setTimeout(() => $('#user-already-exists').text(''), 3000);
   }
 }
 

@@ -92,6 +92,7 @@ $('#search-customer-button').on('click', () => {
   $('#search-customer-input').val('');
   $('#add-customer-input').val('');
   $('#user-not-found').text('')
+  $('#user-already-exists').text('')
 })
 
 $('#add-customer-button').on('click', () => {
@@ -102,6 +103,7 @@ $('#add-customer-button').on('click', () => {
   $('#search-customer-input').val('');
   $('#add-customer-input').val('');
   $('#user-not-found').text('')
+  $('#user-already-exists').text('')
 })
 
 $('#submit-search-button').on('click', () => {
@@ -117,13 +119,13 @@ $('#search-customer-input').on('keypress', function (e) {
 });
 
 $('#submit-add-button').on('click', () => {
-  hotel.user.addUser($('#add-customer-input').val())
+  hotel.user.checkAddUser($('#add-customer-input').val())
   $('#add-customer-input').val('')
 })
 
 $('#add-customer-input').on('keypress', function (e) {
   if (e.which === 13) {
-    hotel.user.addUser($('#add-customer-input').val())
+    hotel.user.checkAddUser($('#add-customer-input').val())
     $('#add-customer-input').val('')
   }
 });

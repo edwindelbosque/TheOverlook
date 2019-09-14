@@ -94,12 +94,13 @@ input {
   border-radius: 4px 4px 4px 4px;
   width: 260px;
   height: 48px;
-  padding-left: 15px;
+  padding-left: 25px;
   font-family: AvenirNext-Medium;
   font-size: 26px;
   font-weight: 200;
   color: #4C4C4C;
   text-align: left;
+  border-radius: 39px 10px 10px 39px;
   color: $text-color;
   transition: .15s; 
   border: none;
@@ -128,8 +129,9 @@ button {
 
 #submit-add-button,
 #submit-search-button {
-  width: 120px;
+  width: 112px;
   height: 49px;
+  margin-left: -8px;
 }
 
 #current-user {
@@ -140,7 +142,8 @@ button {
   background-color: #ededed;
 }
 
-#user-not-found {
+#user-not-found,
+#user-already-exists {
   display: inline;
   margin-left: 15px;
   font-size: 22px;
