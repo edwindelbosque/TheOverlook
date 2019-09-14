@@ -1,4 +1,4 @@
-import DOMupdates from "./DOMupdates";
+import DOMupdates from './DOMupdates';
 
 class RoomService {
   constructor(roomServiceData) {

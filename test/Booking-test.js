@@ -1,12 +1,12 @@
 import chai from 'chai';
-import Booking from '../src/Booking';
-import DOMupdates from '../src/DOMupdates.js';
-import bookingData from '../data/bookings.js'
-import roomData from '../data/rooms.js';
 import spies from 'chai-spies';
-
 const expect = chai.expect;
 chai.use(spies);
+import Booking from '../src/Booking';
+import bookingData from '../data/bookings';
+import roomData from '../data/rooms';
+import DOMupdates from '../src/DOMupdates';
+
 let booking;
 
 beforeEach(() => {

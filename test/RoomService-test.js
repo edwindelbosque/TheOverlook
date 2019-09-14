@@ -1,13 +1,12 @@
-import DOMupdates from '../src/DOMupdates.js';
-import RoomService from '../src/RoomService';
-import roomServiceData from '../data/roomServices.js';
 import chai from 'chai';
-import spies from 'chai-spies'
-
+import spies from 'chai-spies';
 const expect = chai.expect;
 chai.use(spies);
-let roomService;
+import RoomService from '../src/RoomService';
+import roomServiceData from '../data/roomServices';
+import DOMupdates from '../src/DOMupdates';
 
+let roomService;
 
 beforeEach(() => {
   chai.spy.on(DOMupdates, [

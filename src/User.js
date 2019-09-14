@@ -1,4 +1,4 @@
-import DOMupdates from '../src/DOMupdates.js';
+import DOMupdates from './DOMupdates';
 
 class User {
   constructor(userData) {
@@ -10,7 +10,8 @@ class User {
   findUser(name) {
     let user = this.userData
       .find(user => user.name.toUpperCase() === name.toUpperCase());
-    if (this.name !== undefined && name.toUpperCase() === this.name.toUpperCase()) {
+    if (this.name !== undefined
+      && name.toUpperCase() === this.name.toUpperCase()) {
       DOMupdates.displayUserAlreadySelected()
     } else if (user) {
       this.name = user.name;

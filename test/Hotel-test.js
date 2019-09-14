@@ -1,13 +1,13 @@
-import Hotel from '../src/Hotel';
-import DOMupdates from '../src/DOMupdates.js';
-import bookingData from '../data/bookings.js'
-import roomData from '../data/rooms.js'
-import userData from '../data/users.js'
-import roomServiceData from '../data/roomServices.js'
-import spies from 'chai-spies'
 import chai from 'chai';
-chai.use(spies);
+import spies from 'chai-spies';
 const expect = chai.expect;
+chai.use(spies);
+import Hotel from '../src/Hotel';
+import userData from '../data/users';
+import bookingData from '../data/bookings';
+import roomData from '../data/rooms';
+import roomServiceData from '../data/roomServices';
+import DOMupdates from '../src/DOMupdates';
 
 let hotel;
 
@@ -15,6 +15,10 @@ beforeEach(() => {
   chai.spy.on(DOMupdates, ['displayOverallRevenue'], () => true);
   hotel = new Hotel(userData, bookingData, roomServiceData, roomData);
 });
+
+afterEach(function () {
+  chai.spy.restore(DOMupdates)
+})
 
 describe('Hotel', () => {
 

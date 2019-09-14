@@ -1,4 +1,4 @@
-import DOMupdates from "./DOMupdates";
+import DOMupdates from './DOMupdates';
 
 class Booking {
   constructor(bookingData, roomData) {
@@ -7,7 +7,8 @@ class Booking {
   }
 
   findRoomsAvailable(date) {
-    let percentage = `${this.bookingData.filter(booking => booking.date === date).length * 2}%`;
+    let percentage = `${this.bookingData
+      .filter(booking => booking.date === date).length * 2}%`;
     DOMupdates.displayRoomsAvailable(percentage);
     return percentage;
   }
@@ -15,7 +16,8 @@ class Booking {
   getBookingRevenue(date) {
     let bookedToday = this.bookingData.filter(booking => booking.date === date)
     let dailyRevenue = bookedToday.reduce((acc, book) => {
-      acc += this.roomData.find(room => room.number === book.roomNumber).costPerNight;
+      acc += this.roomData
+        .find(room => room.number === book.roomNumber).costPerNight;
       return acc;
     }, 0);
     return Math.round(dailyRevenue);

@@ -1,11 +1,11 @@
-import spies from 'chai-spies'
 import chai from 'chai';
-import User from '../src/User';
-import userData from '../data/users.js'
-import DOMupdates from '../src/DOMupdates.js';
-
+import spies from 'chai-spies';
 const expect = chai.expect;
 chai.use(spies);
+import User from '../src/User';
+import userData from '../data/users';
+import DOMupdates from '../src/DOMupdates';
+
 let user;
 
 beforeEach(() => {
