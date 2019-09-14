@@ -11,6 +11,11 @@ class RoomService {
     }, 0)
     return Math.round(totalRevenue);
   }
+
+  getDailyServices(date) {
+    return this.roomServiceData.filter(log => log.date === date)
+      .map(service => service.food);
+  }
 }
 
 export default RoomService;

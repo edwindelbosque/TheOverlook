@@ -40,4 +40,11 @@ describe('RoomService', () => {
     expect(roomService.getRoomServiceRevenue('2019/10/27')).to.equal(39);
   });
 
+  it('should return room services for a specific date', () => {
+    expect(roomService.getDailyServices('2019/10/27')).to.deep.equal([
+      "Generic Cotton Sandwich",
+      "Unbranded Plastic Sandwich"
+    ])
+  });
+
 });
