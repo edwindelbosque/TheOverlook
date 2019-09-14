@@ -13,7 +13,7 @@ const expect = chai.expect;
 let hotel, user;
 
 beforeEach(() => {
-  chai.spy.on(DOMupdates, ['displayUser', 'displayUserReset'], () => true);
+  chai.spy.on(DOMupdates, ['displayUser', 'displayUserReset', 'displayUserNotFound', 'displayUserAlreadyExists'], () => true);
   hotel = new Hotel(userData, bookingData, roomServiceData, roomData);
   user = new User(userData);
 });
@@ -45,11 +45,17 @@ describe('User', () => {
     expect()
   });
 
-  it('should call different DOMupdates methods given names on dataset', () => {
+  it('should call different DOMupdates methods given names to search', () => {
     user.findUser('noemy little')
     expect(DOMupdates.displayUser).to.have.been.called(1);
     user.findUser('rijnfirnferj')
     expect(DOMupdates.displayUserReset).to.have.been.called(1);
+    expect(DOMupdates.displayUserNotFound).to.have.been.called(1);
   });
+
+  it('should call ', () => {
+    user.checkAddUser('Noemy Little');
+    expect(DOMupdates.displayUserAlreadyExists).to.have.been.called(1);
+  })
 
 });
