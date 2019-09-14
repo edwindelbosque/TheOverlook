@@ -30,6 +30,11 @@ const DOMupdates = {
   displayUserAlreadyExists() {
     $('#user-already-exists').text('User already on file')
     setTimeout(() => $('#user-already-exists').text(''), 3000);
+  },
+
+  displayEnterFullName() {
+    $('#user-already-exists').text('Enter full name')
+    setTimeout(() => $('#user-already-exists').text(''), 3000);
   }
 }
 

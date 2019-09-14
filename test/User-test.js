@@ -1,22 +1,28 @@
+import spies from 'chai-spies'
 import chai from 'chai';
 import User from '../src/User';
-import Hotel from '../src/Hotel';
-import DOMupdates from '../src/DOMupdates.js';
-import bookingData from '../data/bookings.js'
-import roomData from '../data/rooms.js'
 import userData from '../data/users.js'
-import roomServiceData from '../data/roomServices.js'
-import spies from 'chai-spies'
-chai.use(spies);
-const expect = chai.expect;
+import DOMupdates from '../src/DOMupdates.js';
 
-let hotel, user;
+const expect = chai.expect;
+chai.use(spies);
+let user;
 
 beforeEach(() => {
-  chai.spy.on(DOMupdates, ['displayUser', 'displayUserReset', 'displayUserNotFound', 'displayUserAlreadyExists', 'displayUserAlreadySelected'], () => true);
-  hotel = new Hotel(userData, bookingData, roomServiceData, roomData);
+  chai.spy.on(DOMupdates, [
+    'displayUser',
+    'displayUserReset',
+    'displayUserNotFound',
+    'displayUserAlreadyExists',
+    'displayUserAlreadySelected',
+    'displayEnterFullName'
+  ], () => true);
   user = new User(userData);
 });
+
+afterEach(function () {
+  chai.spy.restore(DOMupdates)
+})
 
 describe('User', () => {
 
@@ -56,9 +62,11 @@ describe('User', () => {
     expect(DOMupdates.displayUserAlreadySelected).to.have.been.called(1);
   });
 
-  it('should call ', () => {
+  it('should call DOM method if addUser already exists', () => {
     user.checkAddUser('Noemy Little');
     expect(DOMupdates.displayUserAlreadyExists).to.have.been.called(1);
+    user.checkAddUser('Edwin');
+    expect(DOMupdates.displayEnterFullName).to.have.been.called(1);
   })
 
 });

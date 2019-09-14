@@ -1,54 +1,46 @@
 import $ from 'jquery';
 import './css/base.scss';
 import Hotel from './Hotel';
-import User from './User';
-import Booking from './Booking';
-import DOMupdates from './DOMupdates';
 
 import './images/wave-image.png';
 import './images/favicon.png';
 import './images/add-icon.svg';
 import './images/search-icon.svg';
 
-
 const DOMdate = $('#date');
-let customers, rooms, bookings, services, hotel, user, booking;
+let hotel, customerData, roomData, bookingData, roomServiceData;
 
 displayCurrentDate(getToday());
-
-fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
-  .then(response => response.json())
-  .then(data => customers = data.users)
-  .catch(err => console.log('Unable to fetch the data', err));
-
-fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
-  .then(response => response.json())
-  .then(data => rooms = data.rooms)
-  .catch(err => console.log('Unable to fetch the data', err));
-
-fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
-  .then(response => response.json())
-  .then(data => bookings = data.bookings)
-  .catch(err => console.log('Unable to fetch the data', err));
-
-fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices')
-  .then(response => response.json())
-  .then(data => services = data.roomServices)
-  .catch(err => console.log('Unable to fetch the data', err));
-
-setTimeout(() => {
-  hotel = new Hotel(customers, bookings, services, rooms)
-  bookings = new Booking(bookings, rooms);
-  bookings.findRoomsAvailable(getToday());
-  hotel.getTotalDailyRevenue(getToday());
-}, 1000);
-
-// Show the first tab by default
 $('.tabs-stage div').fadeOut(100);
 $('.tabs-stage div:first').delay(100).fadeIn(100);
 $('.tabs-nav li:first').addClass('tab-active');
 
-// Change tab class and display content
+fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
+  .then(response => response.json())
+  .then(data => customerData = data.users)
+  .catch(err => console.log('Unable to fetch the data', err));
+
+fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
+  .then(response => response.json())
+  .then(data => roomData = data.rooms)
+  .catch(err => console.log('Unable to fetch the data', err));
+
+fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
+  .then(response => response.json())
+  .then(data => bookingData = data.bookings)
+  .catch(err => console.log('Unable to fetch the data', err));
+
+fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices')
+  .then(response => response.json())
+  .then(data => roomServiceData = data.roomServices)
+  .catch(err => console.log('Unable to fetch the data', err));
+
+setTimeout(() => {
+  hotel = new Hotel(customerData, bookingData, roomServiceData, roomData)
+  hotel.booking.findRoomsAvailable(getToday());
+  hotel.getTotalDailyRevenue(getToday());
+}, 1000);
+
 $('.tabs-nav a').on('click', function (event) {
   event.preventDefault();
   $('.tabs-nav li').removeClass('tab-active');

@@ -25,9 +25,13 @@ class User {
 
   checkAddUser(name) {
     let capitalizedNames = this.userData.map(user => user.name.toUpperCase());
-    capitalizedNames.includes(name.toUpperCase())
-      ? DOMupdates.displayUserAlreadyExists()
-      : this.addUser(name);
+    if (capitalizedNames.includes(name.toUpperCase())) {
+      DOMupdates.displayUserAlreadyExists()
+    } else if (name.split(' ').length < 2) {
+      DOMupdates.displayEnterFullName();
+    } else {
+      this.addUser(name);
+    }
   }
 
   addUser(name) {

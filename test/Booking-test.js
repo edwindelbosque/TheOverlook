@@ -1,25 +1,22 @@
 import chai from 'chai';
-import Hotel from '../src/Hotel';
 import Booking from '../src/Booking';
 import DOMupdates from '../src/DOMupdates.js';
 import bookingData from '../data/bookings.js'
 import roomData from '../data/rooms.js'
-import userData from '../data/users.js'
-import roomServiceData from '../data/roomServices.js'
-const expect = chai.expect;
 import spies from 'chai-spies'
+
+const expect = chai.expect;
 chai.use(spies);
-let hotel, booking, user;
+let booking;
 
 beforeEach(() => {
   chai.spy.on(DOMupdates, ['displayRoomsAvailable'], () => true);
-  hotel = new Hotel(userData, bookingData, roomServiceData, roomData);
   booking = new Booking(bookingData, roomData);
 });
 
 afterEach(function () {
   chai.spy.restore(DOMupdates)
-});
+})
 
 describe('Booking', () => {
 
@@ -27,7 +24,7 @@ describe('Booking', () => {
     expect(Booking).to.be.a('function');
   });
 
-  it('should be an instance of Player', () => {
+  it('should be an instance of Booking', () => {
     expect(booking).to.be.an.instanceOf(Booking);
   });
 
