@@ -8,7 +8,7 @@ nav {
   align-items: center;
 
   h2 {
-    padding-top: 1px;
+    padding-top: 2px;
     height: 50px;
   }
 }
@@ -133,9 +133,16 @@ button {
 }
 
 #current-user {
-  color: #3771bb;
+  color: #3a6b96;
   font-weight: 600;
-  padding: 2px 6px 0 6px;
+  padding: 4px 8px 0 8px;
   border-radius: 4px;
-  background-color: rgb(233, 233, 233);
+  background-color: #ededed;
+}
+
+#user-not-found {
+  display: inline;
+  margin-left: 15px;
+  font-size: 22px;
+  color: rgb(255, 65, 51);
 }

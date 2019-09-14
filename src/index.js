@@ -91,6 +91,7 @@ $('#search-customer-button').on('click', () => {
   $('#submit-add-button').hide();
   $('#search-customer-input').val('');
   $('#add-customer-input').val('');
+  $('#user-not-found').text('')
 })
 
 $('#add-customer-button').on('click', () => {
@@ -100,14 +101,29 @@ $('#add-customer-button').on('click', () => {
   $('#submit-search-button').hide();
   $('#search-customer-input').val('');
   $('#add-customer-input').val('');
+  $('#user-not-found').text('')
 })
 
 $('#submit-search-button').on('click', () => {
   hotel.user.findUser($('#search-customer-input').val())
+  $('#search-customer-input').val('')
 })
 
 $('#search-customer-input').on('keypress', function (e) {
   if (e.which === 13) {
     hotel.user.findUser($('#search-customer-input').val())
+    $('#search-customer-input').val('')
+  }
+});
+
+$('#submit-add-button').on('click', () => {
+  hotel.user.addUser($('#add-customer-input').val())
+  $('#add-customer-input').val('')
+})
+
+$('#add-customer-input').on('keypress', function (e) {
+  if (e.which === 13) {
+    hotel.user.addUser($('#add-customer-input').val())
+    $('#add-customer-input').val('')
   }
 });

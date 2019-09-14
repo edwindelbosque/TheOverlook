@@ -15,6 +15,11 @@ const DOMupdates = {
 
   displayUserReset() {
     $('#current-user').text('Global View');
+  },
+
+  displayUserNotFound() {
+    $('#user-not-found').text('User not found');
+    setTimeout(() => $('#user-not-found').text(''), 3000);
   }
 }
 

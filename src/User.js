@@ -5,7 +5,6 @@ class User {
     this.userData = userData;
     this.name = undefined;
     this.id = undefined;
-    this.totalUsers = userData.length;
   }
 
   findUser(name) {
@@ -17,14 +16,15 @@ class User {
       DOMupdates.displayUser(this.name);
     } else {
       DOMupdates.displayUserReset()
+      DOMupdates.displayUserNotFound();
     }
   }
 
   addUser(name) {
     this.name = name;
-    this.id = this.totalUsers + 1;
-    this.userData.push({ id: this.totalUsers, name: this.name })
-    this.userData.shift();
+    this.id = this.totalUsers;
+    this.userData.push({ id: this.userData.length + 1, name: this.name })
+    DOMupdates.displayUser(this.name);
   }
 }
 
