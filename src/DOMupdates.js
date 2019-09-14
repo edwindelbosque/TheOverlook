@@ -22,8 +22,13 @@ const DOMupdates = {
     setTimeout(() => $('#user-not-found').text(''), 3000);
   },
 
+  displayUserAlreadySelected() {
+    $('#user-not-found').text('User already selected');
+    setTimeout(() => $('#user-not-found').text(''), 3000);
+  },
+
   displayUserAlreadyExists() {
-    $('#user-already-exists').text('User found on records')
+    $('#user-already-exists').text('User already on file')
     setTimeout(() => $('#user-already-exists').text(''), 3000);
   }
 }

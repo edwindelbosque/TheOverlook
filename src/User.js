@@ -10,11 +10,14 @@ class User {
   findUser(name) {
     let user = this.userData
       .find(user => user.name.toUpperCase() === name.toUpperCase());
-    if (user) {
+    if (this.name !== undefined && name.toUpperCase() === this.name.toUpperCase()) {
+      DOMupdates.displayUserAlreadySelected()
+    } else if (user) {
       this.name = user.name;
       this.id = user.id;
       DOMupdates.displayUser(this.name);
     } else {
+      this.name = undefined;
       DOMupdates.displayUserReset()
       DOMupdates.displayUserNotFound();
     }
@@ -30,7 +33,7 @@ class User {
   addUser(name) {
     let fixedName = name.toLowerCase()
       .split(' ')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .map(word => word[0].toUpperCase() + word.slice(1))
       .join(' ');
     this.name = fixedName;
     this.id = this.totalUsers;
