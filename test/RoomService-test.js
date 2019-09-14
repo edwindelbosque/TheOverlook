@@ -1,19 +1,19 @@
-// import Hotel from '../src/Hotel';
-// import Booking from '../src/Booking';
 import DOMupdates from '../src/DOMupdates.js';
-// import bookingData from '../data/bookings.js'
-// import roomData from '../data/rooms.js'
-// import userData from '../data/users.js'
-import spies from 'chai-spies'
-chai.use(spies);
-import chai from 'chai';
 import RoomService from '../src/RoomService';
-import roomServiceData from '../data/roomServices.js'
-const expect = chai.expect;
+import roomServiceData from '../data/roomServices.js';
+import chai from 'chai';
+import spies from 'chai-spies'
 
+const expect = chai.expect;
+chai.use(spies);
 let roomService;
 
+
 beforeEach(() => {
+  chai.spy.on(DOMupdates, [
+    'displayOrdersToday',
+    'displayResetOrders'
+  ], () => true);
   roomService = new RoomService(roomServiceData);
 });
 
@@ -39,6 +39,12 @@ describe('RoomService', () => {
     expect(roomService.getRoomServiceRevenue('2019/07/29')).to.equal(15);
     expect(roomService.getRoomServiceRevenue('2019/10/27')).to.equal(39);
   });
+
+  it('should call DOM method when displaying today orders', () => {
+    roomService.getDailyServices('2019/10/27');
+    expect(DOMupdates.displayResetOrders).to.have.been.called(1);
+    expect(DOMupdates.displayOrdersToday).to.have.been.called(2);
+  })
 
   it('should return room services for a specific date', () => {
     expect(roomService.getDailyServices('2019/10/27')).to.deep.equal([

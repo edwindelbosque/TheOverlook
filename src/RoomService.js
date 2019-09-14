@@ -21,6 +21,7 @@ class RoomService {
     servicesToday.forEach(order => {
       DOMupdates.displayOrdersToday(order);
     })
+    return servicesToday;
   }
 }
 
