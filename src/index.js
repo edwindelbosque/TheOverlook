@@ -122,3 +122,15 @@ $('#add-customer-input').on('keypress', function (e) {
     $('#add-customer-input').val('')
   }
 });
+
+$('#order-date-button').on('click', () => {
+  let inputValue = $('#order-date-input').val();
+  hotel.roomService.searchOrders(inputValue);
+})
+
+$('#order-date-input').on('keypress', function (e) {
+  if (e.which === 13) {
+    let inputValue = $('#order-date-input').val();
+    hotel.roomService.searchOrders(inputValue);
+  }
+});

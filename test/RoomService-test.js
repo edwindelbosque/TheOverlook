@@ -11,7 +11,10 @@ let roomService;
 beforeEach(() => {
   chai.spy.on(DOMupdates, [
     'displayOrdersToday',
-    'displayResetOrders'
+    'displayResetOrders',
+    'displaySearchedOrders',
+    'dusplayResetOrders',
+    'displayResultsHeader'
   ], () => true);
   roomService = new RoomService(roomServiceData);
 });

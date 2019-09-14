@@ -23,6 +23,16 @@ class RoomService {
     })
     return servicesToday;
   }
+
+  searchOrders(date) {
+    let servicesToday = this.roomServiceData.filter(log => log.date === date)
+      .map(service => service.food);
+    DOMupdates.displayResetResults();
+    DOMupdates.displayResultsHeader(servicesToday.length);
+    servicesToday.forEach(order => {
+      DOMupdates.displaySearchedOrders(order);
+    })
+  }
 }
 
 export default RoomService;

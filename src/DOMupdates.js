@@ -38,11 +38,23 @@ const DOMupdates = {
   },
 
   displayOrdersToday(order) {
-    $(`<li>- ${order}</li>`).appendTo('#orders-today');
+    $(`<li>${order}</li>`).appendTo('#orders-today');
   },
 
   displayResetOrders() {
     $('#orders-today').empty();
+  },
+
+  displaySearchedOrders(order) {
+    $(`<li>${order}</li>`).appendTo('#orders-results');
+  },
+
+  displayResultsHeader(number) {
+    $('#results-title').text(`${number} Results Found`);
+  },
+
+  displayResetResults() {
+    $('#orders-results').empty();
   }
 
 }
