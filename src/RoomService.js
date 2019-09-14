@@ -1,3 +1,5 @@
+import DOMupdates from "./DOMupdates";
+
 class RoomService {
   constructor(roomServiceData) {
     this.roomServiceData = roomServiceData;
@@ -13,8 +15,12 @@ class RoomService {
   }
 
   getDailyServices(date) {
-    return this.roomServiceData.filter(log => log.date === date)
+    DOMupdates.displayResetOrders()
+    let servicesToday = this.roomServiceData.filter(log => log.date === date)
       .map(service => service.food);
+    servicesToday.forEach(order => {
+      DOMupdates.displayOrdersToday(order);
+    })
   }
 }
 

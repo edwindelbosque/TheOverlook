@@ -35,7 +35,16 @@ const DOMupdates = {
   displayEnterFullName() {
     $('#user-already-exists').text('Enter full name')
     setTimeout(() => $('#user-already-exists').text(''), 3000);
+  },
+
+  displayOrdersToday(order) {
+    $(`<li>- ${order}</li>`).appendTo('#orders-today');
+  },
+
+  displayResetOrders() {
+    $('#orders-today').empty();
   }
+
 }
 
 export default DOMupdates;

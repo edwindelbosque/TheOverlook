@@ -162,3 +162,15 @@ button {
 #overall-revenue {
   font-weight: 700;
 }
+
+#orders-today {
+  margin-top: 10px;
+  display: inline-block;
+}
+
+#orders-today li {
+  background-color: rgb(233, 233, 233);
+  margin: 8px 0 8px 5px;
+  border-radius: 6px;
+  padding: 3px 8px;
+}

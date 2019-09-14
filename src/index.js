@@ -39,6 +39,7 @@ setTimeout(() => {
   hotel = new Hotel(customerData, bookingData, roomServiceData, roomData)
   hotel.booking.findRoomsAvailable(getToday());
   hotel.getTotalDailyRevenue(getToday());
+  hotel.roomService.getDailyServices(getToday());
 }, 1000);
 
 $('.tabs-nav a').on('click', function (event) {
