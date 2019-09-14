@@ -31,10 +31,17 @@
     <div id="tab-orders">
       <h1>Orders</h1>
       <main class="orders-main">
-        <h4>Today:</h4>
-        <ul id="orders-today">
-
-        </ul>
+        <section class="orders-section-1">
+          <h4>Today</h4>
+          <ul id="orders-today">
+          </ul>
+        </section>
+        <section class="orders-section-2">
+          <h4>Search by date</h4>
+          <input placeholder="e.g. 2019/10/23" id="order-date-input">
+          <button id="order-date-button">Search</button>
+          <p id="invalid-date"></p>
+        </section>
       </main>
     </div>
     <div id="tab-rooms">
@@ -44,14 +51,14 @@
       <h1>Customers</h1>
       <img class=" svg-icon" src="images/search-icon.svg">
       <button id="search-customer-button">Search customer</button>
-      <input id="search-customer-input">
+      <input placeholder="e.g. Khalid Williams" id="search-customer-input">
       <button id="submit-search-button">Submit</button>
       <p id="user-not-found"></p>
       <br>
       <br>
       <img class="svg-icon" src="images/add-icon.svg">
       <button id="add-customer-button">Add customer</button>
-      <input id="add-customer-input">
+      <input placeholder="e.g. Brittany Storoz" id="add-customer-input">
       <button id="submit-add-button">Submit</button>
       <p id="user-already-exists"></p>
     </div>
