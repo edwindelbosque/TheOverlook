@@ -42,7 +42,9 @@ $('.tabs-nav a').on('click', function (event) {
   $(this).parent().addClass('tab-active');
   $('.tabs-stage div').fadeOut(100);
   $($(this).attr('href')).delay(100).fadeIn(100);
-});
+  $('#money-spent-date').delay(1000).text('');
+  $('#order-customer-input').delay(1000).val('');
+})
 
 function getToday() {
   let today = new Date();
