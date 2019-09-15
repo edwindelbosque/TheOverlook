@@ -51,22 +51,26 @@ describe('User', () => {
     expect()
   });
 
-  it('should call different DOMupdates methods given names to search', () => {
-    user.findUser('noemy little')
-    expect(DOMupdates.displayUser).to.have.been.called(1);
-    user.findUser('rijnfirnferj')
-    expect(DOMupdates.displayUserReset).to.have.been.called(1);
-    expect(DOMupdates.displayUserNotFound).to.have.been.called(1);
-    user.findUser('noemy little')
-    user.findUser('noemy little')
-    expect(DOMupdates.displayUserAlreadySelected).to.have.been.called(1);
-  });
+  describe('spies', () => {
 
-  it('should call DOM method if addUser already exists', () => {
-    user.checkAddUser('Noemy Little');
-    expect(DOMupdates.displayUserAlreadyExists).to.have.been.called(1);
-    user.checkAddUser('Edwin');
-    expect(DOMupdates.displayEnterFullName).to.have.been.called(1);
+    it('should call different DOMupdates methods given names to search', () => {
+      user.findUser('noemy little')
+      expect(DOMupdates.displayUser).to.have.been.called(1);
+      user.findUser('rijnfirnferj')
+      expect(DOMupdates.displayUserReset).to.have.been.called(1);
+      expect(DOMupdates.displayUserNotFound).to.have.been.called(1);
+      user.findUser('noemy little')
+      user.findUser('noemy little')
+      expect(DOMupdates.displayUserAlreadySelected).to.have.been.called(1);
+    });
+
+    it('should call DOM method if addUser already exists', () => {
+      user.checkAddUser('Noemy Little');
+      expect(DOMupdates.displayUserAlreadyExists).to.have.been.called(1);
+      user.checkAddUser('Edwin');
+      expect(DOMupdates.displayEnterFullName).to.have.been.called(1);
+    })
+
   })
 
 });

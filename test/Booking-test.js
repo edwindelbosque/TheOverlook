@@ -43,11 +43,6 @@ describe('Booking', () => {
     expect(booking.findRoomsAvailable('2019/09/12')).to.equal('40%');
   });
 
-  it('should call function to show available rooms on DOM', () => {
-    booking.findRoomsAvailable('2019/09/12')
-    expect(DOMupdates.displayRoomsAvailable).to.have.been.called(1);
-  });
-
   it('should display total daily revenue from bookings', () => {
     expect(booking.getBookingRevenue('2019/09/12')).to.equal(6184);
   });
@@ -72,14 +67,23 @@ describe('Booking', () => {
     expect(booking.getArrayOfDates().length).to.deep.equal(101);
   });
 
-  it('should call DOMupdates to display most popular booking dates', () => {
-    booking.findPopularDates('2019/09/15');
-    expect(DOMupdates.displayPopularDates).to.have.been.called(5);
-  });
+  describe('spies', () => {
 
-  it('should call DOMupdates to display most low traffic booking dates', () => {
-    booking.findUnpopularDates('2019/09/15');
-    expect(DOMupdates.displayUnpopularDates).to.have.been.called(5);
+    it('should call function to show available rooms on DOM', () => {
+      booking.findRoomsAvailable('2019/09/12')
+      expect(DOMupdates.displayRoomsAvailable).to.have.been.called(1);
+    });
+
+    it('should call DOMupdates to display most popular booking dates', () => {
+      booking.findPopularDates('2019/09/15');
+      expect(DOMupdates.displayPopularDates).to.have.been.called(5);
+    });
+
+    it('should call DOMupdates to display most low traffic booking dates', () => {
+      booking.findUnpopularDates('2019/09/15');
+      expect(DOMupdates.displayUnpopularDates).to.have.been.called(5);
+    });
+
   });
 
 });

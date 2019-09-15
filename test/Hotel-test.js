@@ -34,9 +34,13 @@ describe('Hotel', () => {
     expect(hotel.getTotalDailyRevenue('2019/10/27')).to.equal('6,162');
   });
 
-  it('should call function to show overall revenue on DOM', () => {
-    hotel.getTotalDailyRevenue('2019/10/27')
-    expect(DOMupdates.displayOverallRevenue).to.have.been.called(1);
+  describe('spies', () => {
+
+    it('should call function to show overall revenue on DOM', () => {
+      hotel.getTotalDailyRevenue('2019/10/27')
+      expect(DOMupdates.displayOverallRevenue).to.have.been.called(1);
+    });
+
   });
 
 });
