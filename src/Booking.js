@@ -63,7 +63,7 @@ class Booking {
   findPopularDates(date) {
     this.sliceFutureDates(date)
       .sort((a, b) => b.bookings.length - a.bookings.length)
-      .slice(0, 10)
+      .slice(0, 5)
       .sort((a, b) => ('' + a.date).localeCompare(b.date))
       .forEach(day => DOMupdates.displayPopularDates(day));
   }
@@ -71,7 +71,7 @@ class Booking {
   findUnpopularDates(date) {
     this.sliceFutureDates(date)
       .sort((a, b) => a.bookings.length - b.bookings.length)
-      .slice(0, 10)
+      .slice(0, 5)
       .sort((a, b) => ('' + a.date).localeCompare(b.date))
       .forEach(day => DOMupdates.displayUnpopularDates(day));
   }

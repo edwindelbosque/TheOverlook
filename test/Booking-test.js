@@ -10,7 +10,10 @@ import DOMupdates from '../src/DOMupdates';
 let booking;
 
 beforeEach(() => {
-  chai.spy.on(DOMupdates, ['displayRoomsAvailable'], () => true);
+  chai.spy.on(DOMupdates, [
+    'displayRoomsAvailable',
+    'displayPopularDates',
+    'displayUnpopularDates'], () => true);
   booking = new Booking(bookingData, roomData);
 });
 
@@ -49,14 +52,34 @@ describe('Booking', () => {
     expect(booking.getBookingRevenue('2019/09/12')).to.equal(6184);
   });
 
-  // it('should display total daily revenue from bookings', () => {
-  //   expect(booking.sliceFutureDates('2019/09/14')).to.deep.equal({});
-  // });
+  it('should return dates as properties and their bookings as the values', () => {
+    expect(booking.findBookingsPerDate()['2019/09/12'].slice(0, 5)).to.deep.equal(
+      [
+        { userID: 47, date: '2019/09/12', roomNumber: 14 },
+        { userID: 13, date: '2019/09/12', roomNumber: 29 },
+        { userID: 62, date: '2019/09/12', roomNumber: 47 },
+        { userID: 99, date: '2019/09/12', roomNumber: 39 },
+        { userID: 52, date: '2019/09/12', roomNumber: 31 },
+      ]
+    );
+  });
 
-  it('should display total daily revenue from bookings', () => {
-    // booking.findPopularDates('2019/09/14');
-    // booking.findUnpopularDates('2019/09/14');
-    expect(booking.sliceFutureDates('2019/09/14')).to.deep.equal({});
+  it('should return booking dates from the present day and on only', () => {
+    expect(booking.sliceFutureDates('2019/09/14').length).to.deep.equal(48);
+  });
+
+  it('should return an array of all unique dates', () => {
+    expect(booking.getArrayOfDates().length).to.deep.equal(101);
+  });
+
+  it('should call DOMupdates to display most popular booking dates', () => {
+    booking.findPopularDates('2019/09/15');
+    expect(DOMupdates.displayPopularDates).to.have.been.called(5);
+  });
+
+  it('should call DOMupdates to display most low traffic booking dates', () => {
+    booking.findUnpopularDates('2019/09/15');
+    expect(DOMupdates.displayUnpopularDates).to.have.been.called(5);
   });
 
 });

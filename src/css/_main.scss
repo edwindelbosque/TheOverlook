@@ -318,7 +318,7 @@ a {
   flex-direction: column;
 
   li {
-    margin: 0;
     padding: 0;
+    pointer-events: none;
   }
 }
