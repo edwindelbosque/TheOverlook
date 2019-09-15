@@ -96,28 +96,28 @@ $('#add-customer-button').on('click', () => {
 $('#submit-search-button').on('click', () => {
   hotel.user.findUser($('#search-customer-input').val())
   $('#search-customer-input').val('')
-  hotel.getTotalSpentOrders()
+  hotel.toggleCustomizedOrders()
 })
 
 $('#search-customer-input').on('keypress', function (e) {
   if (e.which === 13) {
     hotel.user.findUser($('#search-customer-input').val())
     $('#search-customer-input').val('')
-    hotel.getTotalSpentOrders()
+    hotel.toggleCustomizedOrders()
   }
 });
 
 $('#submit-add-button').on('click', () => {
   hotel.user.checkAddUser($('#add-customer-input').val())
   $('#add-customer-input').val('')
-  hotel.getTotalSpentOrders()
+  hotel.toggleCustomizedOrders()
 })
 
 $('#add-customer-input').on('keypress', function (e) {
   if (e.which === 13) {
     hotel.user.checkAddUser($('#add-customer-input').val())
     $('#add-customer-input').val('')
-    hotel.getTotalSpentOrders()
+    hotel.toggleCustomizedOrders()
   }
 });
 
