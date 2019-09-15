@@ -6,8 +6,8 @@ import DOMupdates from './DOMupdates';
 class Hotel {
   constructor(userData, bookingData, roomServiceData, roomData) {
     this.booking = new Booking(bookingData, roomData);
-    this.roomService = new RoomService(roomServiceData);
     this.user = new User(userData);
+    this.roomService = new RoomService(roomServiceData);
   }
 
   getTotalDailyRevenue(date) {
@@ -16,6 +16,12 @@ class Hotel {
       .toLocaleString();
     DOMupdates.displayOverallRevenue(overallRevenue);
     return overallRevenue;
+  }
+
+  getTotalSpentOrders() {
+    if (this.user.id !== undefined) {
+      this.roomService.findTotalSpent(this.user.id);
+    }
   }
 }
 

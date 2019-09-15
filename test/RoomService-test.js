@@ -15,7 +15,8 @@ beforeEach(() => {
     'displaySearchedOrders',
     'dusplayResetOrders',
     'displayResultsHeader',
-    'displayResetResults'
+    'displayResetResults',
+    'displayUserOrderSpenditure'
   ], () => true);
   roomService = new RoomService(roomServiceData);
 });
@@ -62,5 +63,10 @@ describe('RoomService', () => {
     expect(DOMupdates.displayResultsHeader).to.have.been.called(1);
     expect(DOMupdates.displaySearchedOrders).to.have.been.called(3);
   });
+
+  it('should call DOMupdates method', () => {
+    roomService.findTotalSpent(21);
+    expect(DOMupdates.displayUserOrderSpenditure).to.have.been.called(1);
+  })
 
 });

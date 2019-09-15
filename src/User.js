@@ -19,6 +19,7 @@ class User {
       DOMupdates.displayUser(this.name);
     } else {
       this.name = undefined;
+      this.id = undefined;
       DOMupdates.displayUserReset()
       DOMupdates.displayUserNotFound();
     }
@@ -41,7 +42,7 @@ class User {
       .map(word => word[0].toUpperCase() + word.slice(1))
       .join(' ');
     this.name = fixedName;
-    this.id = this.totalUsers;
+    this.id = this.userData.length + 1;
     this.userData.push({ id: this.userData.length + 1, name: this.name })
     DOMupdates.displayUser(this.name);
   }

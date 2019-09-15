@@ -16,22 +16,18 @@ $('.tabs-nav li:first').addClass('tab-active');
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
   .then(response => response.json())
   .then(data => customerData = data.users)
-  .catch(err => console.log('Unable to fetch the data', err));
 
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
   .then(response => response.json())
   .then(data => roomData = data.rooms)
-  .catch(err => console.log('Unable to fetch the data', err));
 
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
   .then(response => response.json())
   .then(data => bookingData = data.bookings)
-  .catch(err => console.log('Unable to fetch the data', err));
 
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices')
   .then(response => response.json())
   .then(data => roomServiceData = data.roomServices)
-  .catch(err => console.log('Unable to fetch the data', err));
 
 setTimeout(() => {
   hotel = new Hotel(customerData, bookingData, roomServiceData, roomData)
@@ -100,24 +96,28 @@ $('#add-customer-button').on('click', () => {
 $('#submit-search-button').on('click', () => {
   hotel.user.findUser($('#search-customer-input').val())
   $('#search-customer-input').val('')
+  hotel.getTotalSpentOrders()
 })
 
 $('#search-customer-input').on('keypress', function (e) {
   if (e.which === 13) {
     hotel.user.findUser($('#search-customer-input').val())
     $('#search-customer-input').val('')
+    hotel.getTotalSpentOrders()
   }
 });
 
 $('#submit-add-button').on('click', () => {
   hotel.user.checkAddUser($('#add-customer-input').val())
   $('#add-customer-input').val('')
+  hotel.getTotalSpentOrders()
 })
 
 $('#add-customer-input').on('keypress', function (e) {
   if (e.which === 13) {
     hotel.user.checkAddUser($('#add-customer-input').val())
     $('#add-customer-input').val('')
+    hotel.getTotalSpentOrders()
   }
 });
 
@@ -134,5 +134,5 @@ $('#order-date-input').on('keypress', function (e) {
 });
 
 $('#spent-order-button').on('click', () => {
-  console.log('hi');
+
 });

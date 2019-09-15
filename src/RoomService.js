@@ -33,6 +33,16 @@ class RoomService {
       DOMupdates.displaySearchedOrders(order);
     })
   }
+
+  findTotalSpent(id) {
+    const filteredLogs = this.roomServiceData.filter(log => log.userID === id);
+    const amount = filteredLogs.reduce((acc, log) => {
+      acc += log.totalCost;
+      return acc;
+    }, 0)
+    DOMupdates.displayUserOrderSpenditure(amount);
+    return amount;
+  }
 }
 
 export default RoomService;

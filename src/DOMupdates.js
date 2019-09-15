@@ -57,6 +57,10 @@ const DOMupdates = {
 
   displayResetResults() {
     $('#orders-results').empty();
+  },
+
+  displayUserOrderSpenditure(amount) {
+    $('#total-orders-amount').text(amount);
   }
 
 }
