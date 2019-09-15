@@ -1,13 +1,11 @@
 import $ from 'jquery';
 import './css/base.scss';
-import Hotel from './Hotel';
-
 import './images/wave-image.png';
 import './images/favicon.png';
 import './images/add-icon.svg';
 import './images/search-icon.svg';
+import Hotel from './Hotel';
 
-const DOMdate = $('#date');
 let hotel, customerData, roomData, bookingData, roomServiceData;
 
 displayCurrentDate(getToday());
@@ -69,7 +67,7 @@ function getToday() {
 }
 
 function displayCurrentDate(day) {
-  DOMdate.text(`${new Date(day).toString().slice(0, 10)}`);
+  $('#date').text(`${new Date(day).toString().slice(0, 10)}`);
 }
 
 $('#search-customer-input').hide();
@@ -133,4 +131,8 @@ $('#order-date-input').on('keypress', function (e) {
     let inputValue = $('#order-date-input').val();
     hotel.roomService.searchOrders(inputValue);
   }
+});
+
+$('#spent-order-button').on('click', () => {
+  console.log('hi');
 });

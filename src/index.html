@@ -28,7 +28,7 @@
         <h4>• Total Revenue: $<span id="overall-revenue">XX</span></h4>
       </main>
     </div>
-    <div id="tab-orders">
+    <div id="tab-orders" class="tab-orders">
       <h1>Orders</h1>
       <main class="orders-main">
         <section class="orders-section-1">
@@ -50,6 +50,37 @@
           </section>
         </section>
       </main>
+      <main class="orders-main-2">
+        <section class="orders-section-4">
+          <h1>Guest information</h1>
+        </section>
+        <h4 class="revenue-customer">Revenue from customer</h4>
+        <section class="order-personalized">
+          <section class="orders-section-5">
+            <section class="all-time-orders">
+              <h4>All-time: <b>$1,525</b></h4>
+            </section>
+            <section class="search-guest-orders">
+              <h4>Search by Date</h4>
+              <input placeholder="e.g. 2019/08/08" id="order-date-input">
+              <button id="spent-order-button">Search</button>
+              <h4 id="money-spent-date">$123</h4>
+            </section>
+          </section>
+          <section class="order-history">
+            <h4>Order History</h4>
+            <ul id="order-history-list">
+              <li>2019/09/08 - $253</li>
+            </ul>
+          </section>
+        </section>
+      </main>
+      <section class="orders-section-6">
+        <h4 id="results-title"></h4>
+        <ul id="orders-results">
+        </ul>
+      </section>
+      </main>
     </div>
     <div id="tab-rooms">
       <h1>Rooms</h1>
@@ -57,21 +88,21 @@
     <div id="tab-customers">
       <h1>Customers</h1>
       <img class=" svg-icon" src="images/search-icon.svg">
-      <button id="search-customer-button">Search customer</button>
+      <button id="search-customer-button">Search guest</button>
       <input placeholder="e.g. Khalid Williams" id="search-customer-input">
       <button id="submit-search-button">Submit</button>
       <p id="user-not-found"></p>
       <br>
       <br>
       <img class="svg-icon" src="images/add-icon.svg">
-      <button id="add-customer-button">Add customer</button>
+      <button id="add-customer-button">Add guest</button>
       <input placeholder="e.g. Brittany Storoz" id="add-customer-input">
       <button id="submit-add-button">Submit</button>
       <p id="user-already-exists"></p>
     </div>
   </section>
 
-  <img src="./images/wave-image.png" class="wave-image">
+  <!-- <img src="./images/wave-image.png" class="wave-image"> -->
 </body>
 
 </html>
