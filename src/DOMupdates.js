@@ -61,8 +61,21 @@ const DOMupdates = {
 
   displayUserOrderSpenditure(amount) {
     $('#total-orders-amount').text(amount);
-  }
+  },
 
+  displayOrderHistory(order) {
+    $(`<li>${order.date} - $${order.totalCost}</li>`)
+      .appendTo('#order-history-list');
+  },
+
+  displayNoOrderHistory() {
+    $('<li>No order history</li>')
+      .appendTo('#order-history-list');
+  },
+
+  displayResetOrderHistory() {
+    $('#order-history-list').empty();
+  }
 }
 
 export default DOMupdates;

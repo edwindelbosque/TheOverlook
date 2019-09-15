@@ -41,7 +41,17 @@ class RoomService {
       return acc;
     }, 0)
     DOMupdates.displayUserOrderSpenditure(amount);
-    return amount;
+  }
+
+  getOrderHistory(id) {
+    DOMupdates.displayResetOrderHistory()
+    const filteredLogs = this.roomServiceData.filter(log => log.userID === id);
+    let orders = filteredLogs.map(log => {
+      return { date: log.date, totalCost: log.totalCost };
+    })
+    orders.length > 0
+      ? orders.forEach(order => DOMupdates.displayOrderHistory(order))
+      : DOMupdates.displayNoOrderHistory()
   }
 }
 

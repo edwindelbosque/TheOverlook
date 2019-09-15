@@ -16,7 +16,10 @@ beforeEach(() => {
     'dusplayResetOrders',
     'displayResultsHeader',
     'displayResetResults',
-    'displayUserOrderSpenditure'
+    'displayUserOrderSpenditure',
+    'displayOrderHistory',
+    'displayResetOrderHistory',
+    'displayNoOrderHistory'
   ], () => true);
   roomService = new RoomService(roomServiceData);
 });
@@ -64,9 +67,17 @@ describe('RoomService', () => {
     expect(DOMupdates.displaySearchedOrders).to.have.been.called(3);
   });
 
-  it('should call DOMupdates method', () => {
+  it('should call DOMupdates method to show total user spenditure', () => {
     roomService.findTotalSpent(21);
     expect(DOMupdates.displayUserOrderSpenditure).to.have.been.called(1);
+  })
+
+  it('should call method to display user order history', () => {
+    roomService.getOrderHistory(5);
+    expect(DOMupdates.displayResetOrderHistory).to.have.been.called(1);
+    expect(DOMupdates.displayOrderHistory).to.have.been.called(2);
+    roomService.getOrderHistory(101);
+    expect(DOMupdates.displayNoOrderHistory).to.have.been.called(1)
   })
 
 });

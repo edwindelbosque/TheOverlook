@@ -312,3 +312,13 @@ a {
   margin-bottom: 15px;
   margin-top: -10px;
 }
+
+#order-history-list {
+  display: flex;
+  flex-direction: column;
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
+}
