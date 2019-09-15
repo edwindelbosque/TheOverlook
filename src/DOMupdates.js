@@ -89,6 +89,16 @@ const DOMupdates = {
   displayGeneralSections() {
     $('#personalized-order-section').hide();
     $('#general-order-section').show();
+  },
+
+  displayPopularDates(day) {
+    $(`<li>${day.date} - ${day.bookings.length} bookings</li>`)
+      .appendTo('#popular-dates');
+  },
+
+  displayUnpopularDates(day) {
+    $(`<li>${day.date} - ${day.bookings.length} bookings</li>`)
+      .appendTo('#unpopular-dates');
   }
 }
 

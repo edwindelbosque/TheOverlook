@@ -49,4 +49,14 @@ describe('Booking', () => {
     expect(booking.getBookingRevenue('2019/09/12')).to.equal(6184);
   });
 
+  // it('should display total daily revenue from bookings', () => {
+  //   expect(booking.sliceFutureDates('2019/09/14')).to.deep.equal({});
+  // });
+
+  it('should display total daily revenue from bookings', () => {
+    // booking.findPopularDates('2019/09/14');
+    // booking.findUnpopularDates('2019/09/14');
+    expect(booking.sliceFutureDates('2019/09/14')).to.deep.equal({});
+  });
+
 });

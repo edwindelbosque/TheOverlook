@@ -1,0 +1,41 @@
+.rooms-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.general-room-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+
+  section {
+    width: 48%;
+    background-color: #e4e4e4;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    h4 {
+      width: 95%;
+      text-align: center;
+      padding-bottom: 8px;
+      border-bottom: 3px solid lightgray;
+    }
+
+    ul {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    li {
+      padding: 0;
+      pointer-events: none;
+    }
+  }
+}

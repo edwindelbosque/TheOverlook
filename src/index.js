@@ -7,8 +7,9 @@ import './images/search-icon.svg';
 import Hotel from './Hotel';
 
 let hotel, customerData, roomData, bookingData, roomServiceData;
+const today = getToday();
 
-displayCurrentDate(getToday());
+displayCurrentDate(today);
 $('.tabs-stage div').fadeOut(100);
 $('.tabs-stage div:first').delay(100).fadeIn(100);
 $('.tabs-nav li:first').addClass('tab-active');
@@ -31,9 +32,11 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServ
 
 setTimeout(() => {
   hotel = new Hotel(customerData, bookingData, roomServiceData, roomData)
-  hotel.booking.findRoomsAvailable(getToday());
-  hotel.getTotalDailyRevenue(getToday());
-  hotel.roomService.getDailyServices(getToday());
+  hotel.booking.findRoomsAvailable(today);
+  hotel.getTotalDailyRevenue(today);
+  hotel.roomService.getDailyServices(today);
+  hotel.booking.findPopularDates(today);
+  hotel.booking.findUnpopularDates(today);
 }, 1000);
 
 $('.tabs-nav a').on('click', function (event) {
