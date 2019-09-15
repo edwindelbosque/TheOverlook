@@ -24,6 +24,10 @@ class Hotel {
       this.roomService.getOrderHistory(this.user.id);
     }
   }
+
+  searchOrders(date) {
+    this.roomService.findOrderSpenditures(this.user.id, date);
+  }
 }
 
 export default Hotel;

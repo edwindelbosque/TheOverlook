@@ -53,6 +53,16 @@ class RoomService {
       ? orders.forEach(order => DOMupdates.displayOrderHistory(order))
       : DOMupdates.displayNoOrderHistory()
   }
+
+  findOrderSpenditures(id, date) {
+    const filteredLogs = this.roomServiceData.filter(log => log.userID === id);
+    const searchedLogs = filteredLogs.filter(log => log.date === date);
+    const totalSpenditure = searchedLogs.reduce((acc, log) => {
+      acc += log.totalCost;
+      return acc;
+    }, 0);
+    DOMupdates.displaySearchOrder(totalSpenditure);
+  }
 }
 
 export default RoomService;

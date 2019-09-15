@@ -75,6 +75,10 @@ const DOMupdates = {
 
   displayResetOrderHistory() {
     $('#order-history-list').empty();
+  },
+
+  displaySearchOrder(amount) {
+    $('#money-spent-date').text(`$${amount}`);
   }
 }
 

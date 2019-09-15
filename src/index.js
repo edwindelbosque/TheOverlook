@@ -99,7 +99,7 @@ $('#submit-search-button').on('click', () => {
   hotel.toggleCustomizedOrders()
 })
 
-$('#search-customer-input').on('keypress', function (e) {
+$('#search-customer-input').on('keypress', (e) => {
   if (e.which === 13) {
     hotel.user.findUser($('#search-customer-input').val())
     $('#search-customer-input').val('')
@@ -113,7 +113,7 @@ $('#submit-add-button').on('click', () => {
   hotel.toggleCustomizedOrders()
 })
 
-$('#add-customer-input').on('keypress', function (e) {
+$('#add-customer-input').on('keypress', (e) => {
   if (e.which === 13) {
     hotel.user.checkAddUser($('#add-customer-input').val())
     $('#add-customer-input').val('')
@@ -126,7 +126,7 @@ $('#order-date-button').on('click', () => {
   hotel.roomService.searchOrders(inputValue);
 })
 
-$('#order-date-input').on('keypress', function (e) {
+$('#order-date-input').on('keypress', (e) => {
   if (e.which === 13) {
     let inputValue = $('#order-date-input').val();
     hotel.roomService.searchOrders(inputValue);
@@ -134,5 +134,13 @@ $('#order-date-input').on('keypress', function (e) {
 });
 
 $('#spent-order-button').on('click', () => {
-
+  const userInput = $('#order-customer-input').val()
+  hotel.searchOrders(userInput);
 });
+
+$('#order-customer-input').on('keypress', (e) => {
+  if (e.which === 13) {
+    const userInput = $('#order-customer-input').val()
+    hotel.searchOrders(userInput);
+  }
+})

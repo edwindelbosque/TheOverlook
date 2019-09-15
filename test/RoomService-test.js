@@ -19,7 +19,8 @@ beforeEach(() => {
     'displayUserOrderSpenditure',
     'displayOrderHistory',
     'displayResetOrderHistory',
-    'displayNoOrderHistory'
+    'displayNoOrderHistory',
+    'displaySearchOrder'
   ], () => true);
   roomService = new RoomService(roomServiceData);
 });
@@ -78,6 +79,11 @@ describe('RoomService', () => {
     expect(DOMupdates.displayOrderHistory).to.have.been.called(2);
     roomService.getOrderHistory(101);
     expect(DOMupdates.displayNoOrderHistory).to.have.been.called(1)
+  })
+
+  it('should call method to display user order search', () => {
+    roomService.findOrderSpenditures(43, '2019/08/09');
+    expect(DOMupdates.displaySearchOrder).to.have.been.called(1);
   })
 
 });
