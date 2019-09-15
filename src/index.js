@@ -70,6 +70,7 @@ $('#search-customer-input').hide();
 $('#add-customer-input').hide();
 $('#submit-search-button').hide();
 $('#submit-add-button').hide();
+$('#personalized-order-section').hide();
 
 $('#search-customer-button').on('click', () => {
   $('#search-customer-input').toggle();

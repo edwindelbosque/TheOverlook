@@ -79,6 +79,16 @@ const DOMupdates = {
 
   displaySearchOrder(amount) {
     $('#money-spent-date').text(`$${amount}`);
+  },
+
+  displayPersonalizedSections() {
+    $('#general-order-section').hide();
+    $('#personalized-order-section').show();
+  },
+
+  displayGeneralSections() {
+    $('#personalized-order-section').hide();
+    $('#general-order-section').show();
   }
 }
 
