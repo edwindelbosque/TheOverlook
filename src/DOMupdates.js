@@ -54,6 +54,10 @@ const DOMupdates = {
       .appendTo('#orders-results');
   },
 
+  displayResetBookingHistory() {
+    $('#booking-history').empty();
+  },
+
   displayResultsHeader(number) {
     number > 0
       ? $('#results-title').text(`${number} Results Found`)
@@ -62,6 +66,10 @@ const DOMupdates = {
 
   displayResetResults() {
     $('#orders-results').empty();
+  },
+
+  displayBookingHistory(booking) {
+    $(`<li>${booking.date}</li>`).appendTo('#booking-history');
   },
 
   displayUserOrderSpenditure(amount) {

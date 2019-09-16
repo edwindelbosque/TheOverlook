@@ -101,6 +101,12 @@ class Booking {
     DOMupdates.displayBookingResultsTitle(roomsAvailable.length, date)
     roomsAvailable.forEach(room => DOMupdates.displayBookingResults(room))
   }
+
+  findBookingHistory(userId) {
+    let userBookings = this.bookingData.filter(booking => booking.userID === userId);
+    DOMupdates.displayResetBookingHistory();
+    userBookings.forEach(booking => DOMupdates.displayBookingHistory(booking));
+  }
 }
 
 export default Booking;
