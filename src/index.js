@@ -187,3 +187,28 @@ $('#personalized-room-stats').on('click', (e) => {
     $('#filter-bookings').delay(150).fadeIn(150);
   }
 })
+
+$('#select-room-type').change(function () {
+  // $(this) references the current <select>
+  console.log($(this).val());
+})
+
+$('#select-bed-number').change(function () {
+  // $(this) references the current <select>
+  console.log($(this).val());
+})
+
+$('#select-bed-size').change(function () {
+  // $(this) references the current <select>
+  console.log($(this).val());
+})
+
+$('#select-bidet').change(function () {
+  // $(this) references the current <select>
+  console.log($(this).val());
+})
+
+$('#select-price-range').change(function () {
+  // $(this) references the current <select>
+  console.log($(this).val());
+})
