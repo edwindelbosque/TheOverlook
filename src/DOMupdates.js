@@ -84,11 +84,17 @@ const DOMupdates = {
   displayPersonalizedSections() {
     $('#general-order-section').hide();
     $('#personalized-order-section').show();
+    $('#general-room-stats').hide();
+    $('#general-room-search').hide();
+    $('#search-results').hide();
   },
 
   displayGeneralSections() {
     $('#personalized-order-section').hide();
     $('#general-order-section').show();
+    $('#general-room-stats').show();
+    $('#general-room-search').show();
+    $('#search-results').show();
   },
 
   displayPopularDates(day) {

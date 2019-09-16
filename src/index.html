@@ -74,7 +74,7 @@
     </div>
     <div id="tab-rooms" class="rooms-tab">
       <h1>Rooms</h1>
-      <section class="general-room-stats">
+      <section class="general-room-stats" id="general-room-stats">
         <section>
           <h4>Upcoming <b>popular</b> dates</h4>
           <ul id="popular-dates"></ul>
@@ -84,7 +84,7 @@
           <ul id="unpopular-dates"></ul>
         </section>
       </section>
-      <section class="general-room-search">
+      <section class="general-room-search" id="general-room-search">
         <section>
           <h3>Search Rooms by Date</h3>
           <input id="search-bookings-input" placeholder="e.g. 2019/09/08">
@@ -92,9 +92,10 @@
           <ul id="search-booking-results"></ul>
         </section>
       </section>
-      <h1 id="room-search-title">19 rooms available today</h1>
-      <section class="booking-results" id="booking-results">
-
+      <section id="search-results">
+        <h1 id="room-search-title">19 rooms available today</h1>
+        <section class="booking-results" id="booking-results">
+        </section>
       </section>
     </div>
     <div id="tab-customers">
