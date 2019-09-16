@@ -132,3 +132,13 @@
     margin: 0;
   }
 }
+
+#booking-history {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#personalized-room-stats {
+  margin-bottom: 30px;
+}

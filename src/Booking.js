@@ -103,9 +103,18 @@ class Booking {
   }
 
   findBookingHistory(userId) {
-    let userBookings = this.bookingData.filter(booking => booking.userID === userId);
+    let userBookings = this.bookingData
+      .filter(booking => booking.userID === userId);
+    let userRooms = userBookings.map(booking => {
+      return {
+        date: booking.date, room: this.roomData
+          .find(room => room.number === booking.roomNumber)
+      }
+    })
     DOMupdates.displayResetBookingHistory();
-    userBookings.forEach(booking => DOMupdates.displayBookingHistory(booking));
+    userRooms.length
+      ? userRooms.forEach(booking => DOMupdates.displayBookingHistory(booking))
+      : DOMupdates.displayNoBookingHistory();
   }
 }
 

@@ -69,7 +69,18 @@ const DOMupdates = {
   },
 
   displayBookingHistory(booking) {
-    $(`<li>${booking.date}</li>`).appendTo('#booking-history');
+    $(`
+    <li>
+    - ${booking.date} 
+    - ${booking.room.roomType} 
+    - ${booking.room.costPerNight}
+    </li>
+    `).appendTo('#booking-history');
+  },
+
+  displayNoBookingHistory() {
+    $(`<li>This user has no booking history...</li>`)
+      .appendTo('#booking-history');
   },
 
   displayUserOrderSpenditure(amount) {
@@ -100,6 +111,7 @@ const DOMupdates = {
     $('#general-room-stats').hide();
     $('#general-room-search').hide();
     $('#search-results').hide();
+    $('#personalized-room-stats').show();
   },
 
   displayGeneralSections() {
@@ -108,6 +120,7 @@ const DOMupdates = {
     $('#general-room-stats').show();
     $('#general-room-search').show();
     $('#search-results').show();
+    $('#personalized-room-stats').hide();
   },
 
   displayPopularDates(day) {
