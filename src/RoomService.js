@@ -11,6 +11,7 @@ class RoomService {
       acc += service.totalCost;
       return acc;
     }, 0)
+    DOMupdates.displayOrderRevenue(totalRevenue)
     return Math.round(totalRevenue);
   }
 
@@ -25,8 +26,7 @@ class RoomService {
   }
 
   searchOrders(date) {
-    let servicesToday = this.roomServiceData.filter(log => log.date === date)
-      .map(service => service.food);
+    const servicesToday = this.roomServiceData.filter(log => log.date === date);
     DOMupdates.displayResetResults();
     DOMupdates.displayResultsHeader(servicesToday.length);
     servicesToday.forEach(order => {

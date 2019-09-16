@@ -41,12 +41,16 @@ const DOMupdates = {
     $(`<li>${order}</li>`).appendTo('#orders-today');
   },
 
+  displayOrderRevenue(amount) {
+    $('#order-today-revenue').text(`Today's revenue: $${amount}`);
+  },
+
   displayResetOrders() {
     $('#orders-today').empty();
   },
 
   displaySearchedOrders(order) {
-    $(`<li>${order}</li>`).appendTo('#orders-results');
+    $(`<li>${order.food} - $${order.totalCost}</li>`).appendTo('#orders-results');
   },
 
   displayResultsHeader(number) {
