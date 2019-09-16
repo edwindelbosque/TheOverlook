@@ -39,6 +39,10 @@ class Hotel {
   searchOrders(date) {
     this.roomService.findOrderSpenditures(this.user.id, date);
   }
+
+  suggestBooking(date) {
+    this.booking.bookToday(this.user.id, date);
+  }
 }
 
 export default Hotel;

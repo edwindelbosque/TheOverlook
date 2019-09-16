@@ -55,7 +55,7 @@ const DOMupdates = {
   },
 
   displayResetBookingHistory() {
-    $('#booking-history').empty();
+    $('.table-item-booking-history').remove();
   },
 
   displayResultsHeader(number) {
@@ -70,12 +70,12 @@ const DOMupdates = {
 
   displayBookingHistory(booking) {
     $(`
-    <li>
-    - ${booking.date} 
-    - ${booking.room.roomType} 
-    - ${booking.room.costPerNight}
-    </li>
-    `).appendTo('#booking-history');
+    <tr class="table-item-booking-history">
+      <td>${booking.date}</td>
+      <td>${booking.room.roomType} </td>
+      <td>${booking.room.costPerNight}</td>
+    </tr>
+    `).insertAfter('#booking-history');
   },
 
   displayNoBookingHistory() {
@@ -156,7 +156,20 @@ const DOMupdates = {
     </section>
   </article>`)
       .appendTo('#booking-results');
+  },
+
+  displayBookAnotherRoom() {
+    $('#booking-suggestions').empty();
+    $('<li>This user has booked today!</li><br><button>Book Another Day</button>')
+      .appendTo('#booking-suggestions');
+  },
+
+  displayBookToday() {
+    $('#booking-suggestions').empty();
+    $('<li>This user is not booked today</li><br><button>Book Today</button><button>Book Another Day</button>')
+      .appendTo('#booking-suggestions');
   }
+
 }
 
 export default DOMupdates;

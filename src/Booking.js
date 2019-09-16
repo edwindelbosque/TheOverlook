@@ -110,11 +110,19 @@ class Booking {
         date: booking.date, room: this.roomData
           .find(room => room.number === booking.roomNumber)
       }
-    })
+    }).sort((a, b) => ('' + b.date).localeCompare(a.date));
     DOMupdates.displayResetBookingHistory();
     userRooms.length
       ? userRooms.forEach(booking => DOMupdates.displayBookingHistory(booking))
       : DOMupdates.displayNoBookingHistory();
+  }
+
+  bookToday(userId, date) {
+    let userBookings = this.bookingData
+      .filter(booking => booking.userID === userId);
+    userBookings.find(booking => booking.date === date)
+      ? DOMupdates.displayBookAnotherRoom()
+      : DOMupdates.displayBookToday()
   }
 }
 
