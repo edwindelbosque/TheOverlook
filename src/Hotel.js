@@ -29,6 +29,13 @@ class Hotel {
     }
   }
 
+  goToGeneralView() {
+    this.user.name = undefined;
+    this.user.id = undefined;
+    DOMupdates.displayUserReset()
+    DOMupdates.displayGeneralSections()
+  }
+
   searchOrders(date) {
     this.roomService.findOrderSpenditures(this.user.id, date);
   }

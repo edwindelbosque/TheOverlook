@@ -77,6 +77,7 @@ $('#submit-search-button').hide();
 $('#submit-add-button').hide();
 $('#personalized-order-section').hide();
 $('#personalized-room-stats').hide();
+$('#general-view-button').hide();
 
 $('#search-customer-button').on('click', () => {
   $('#search-customer-input').toggle();
@@ -164,4 +165,9 @@ $('#search-bookings-input').on('keypress', (e) => {
     $('#booking-results').empty();
     hotel.booking.findAvailableRooms(userInput);
   }
+})
+
+$('#general-view-button').on('click', () => {
+  $('#general-view-button').hide();
+  hotel.goToGeneralView();
 })

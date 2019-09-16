@@ -14,7 +14,7 @@ const DOMupdates = {
   },
 
   displayUserReset() {
-    $('#current-user').text('Global View');
+    $('#current-user').text('General View');
   },
 
   displayUserNotFound() {
@@ -112,6 +112,7 @@ const DOMupdates = {
     $('#general-room-search').hide();
     $('#search-results').hide();
     $('#personalized-room-stats').show();
+    $('#general-view-button').show();
   },
 
   displayGeneralSections() {
@@ -121,6 +122,7 @@ const DOMupdates = {
     $('#general-room-search').show();
     $('#search-results').show();
     $('#personalized-room-stats').hide();
+    $('#general-view-button').hide();
   },
 
   displayPopularDates(day) {
