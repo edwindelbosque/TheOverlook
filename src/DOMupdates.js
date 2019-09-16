@@ -50,7 +50,8 @@ const DOMupdates = {
   },
 
   displaySearchedOrders(order) {
-    $(`<li>${order.food} - $${order.totalCost}</li>`).appendTo('#orders-results');
+    $(`<li>${order.food} - $${order.totalCost}</li>`)
+      .appendTo('#orders-results');
   },
 
   displayResultsHeader(number) {
