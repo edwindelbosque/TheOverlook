@@ -187,6 +187,7 @@ th {
   align-items: center;
   padding-bottom: 30px;
   border: 2px solid rgb(148, 148, 148);
+  margin-bottom: 30px;
 
   header {
     padding: 10px 0;
@@ -194,7 +195,7 @@ th {
     align-items: center;
     justify-content: space-evenly;
     width: 95%;
-    border-bottom: 3px solid rgb(169, 169, 169);
+    border-bottom: 2px solid rgb(169, 169, 169);
   }
 
   main {
@@ -208,5 +209,14 @@ th {
 .filterings {
   display: flex;
   align-items: center;
-  justify-content: space-between
+  justify-content: flex-end;
+}
+
+select {
+  height: 26px;
+  color: #545454;
+  font-size: 16px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px darkgrey;
+  border: none;
 }
