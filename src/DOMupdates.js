@@ -80,6 +80,17 @@ const DOMupdates = {
     `).insertAfter('#booking-history');
   },
 
+
+  displayBookingHistoryTotal(amount) {
+    $(`
+    <tr class="table-item-booking-history">
+      <td><b>TOTAL</b></td>
+      <td><b>-</b></td>
+      <td><b>${amount}</b></td>
+    </tr>
+    `).insertAfter('#booking-history');
+  },
+
   displayNoBookingHistory() {
     $('#no-order-history').remove();
     $('#table-header').fadeOut();
@@ -114,6 +125,7 @@ const DOMupdates = {
     $('#general-room-stats').fadeOut(150);
     $('#general-room-search').fadeOut(150);
     $('#search-results').fadeOut(150);
+    $('#filter-bookings').fadeOut(150);
     $('#personalized-order-section').delay(150).fadeIn(150);
     $('#personalized-room-stats').delay(150).fadeIn(150);
     $('#general-view-button').delay(150).fadeIn(150);
@@ -123,6 +135,7 @@ const DOMupdates = {
     $('#personalized-order-section').fadeOut(150);
     $('#personalized-room-stats').fadeOut(150);
     $('#general-view-button').fadeOut(150);
+    $('#filter-bookings').fadeOut(150);
     $('#general-order-section').delay(150).fadeIn(150);
     $('#general-room-search').delay(150).fadeIn(150);
     $('#search-results').delay(150).fadeIn(150);

@@ -112,6 +112,11 @@ class Booking {
       }
     }).sort((a, b) => ('' + b.date).localeCompare(a.date));
     DOMupdates.displayResetBookingHistory();
+    let totalUserRevenue = userRooms.reduce((acc, room) => {
+      acc += room.room.costPerNight;
+      return (Math.round(acc))
+    }, 0).toLocaleString();
+    DOMupdates.displayBookingHistoryTotal(totalUserRevenue);
     userRooms.length
       ? userRooms.forEach(booking => DOMupdates.displayBookingHistory(booking))
       : DOMupdates.displayNoBookingHistory();

@@ -78,6 +78,7 @@ $('#submit-add-button').hide();
 $('#personalized-order-section').hide();
 $('#personalized-room-stats').hide();
 $('#general-view-button').hide();
+$('#filter-bookings').hide();
 
 $('#search-customer-button').on('click', () => {
   $('#search-customer-input').toggle();
@@ -178,9 +179,11 @@ $('#personalized-room-stats').on('click', (e) => {
   if (e.target.id === 'book-today-button') {
     $('#personalized-room-stats').fadeOut(150);
     $('#search-results').delay(150).fadeIn(150);
+    $('#filter-bookings').delay(150).fadeIn(150);
   }
   if (e.target.id === 'book-another-button') {
     $('#personalized-room-stats').fadeOut(150);
     $('#search-results').delay(150).fadeIn(150);
+    $('#filter-bookings').delay(150).fadeIn(150);
   }
 })
