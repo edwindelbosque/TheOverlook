@@ -160,13 +160,13 @@ const DOMupdates = {
 
   displayBookAnotherRoom() {
     $('#booking-suggestions').empty();
-    $('<li>This user has booked today!</li><br><button>Book Another Day</button>')
+    $('<li>This user has booked today!</li><br><button id="book-another-button">Book Another Day</button>')
       .appendTo('#booking-suggestions');
   },
 
   displayBookToday() {
     $('#booking-suggestions').empty();
-    $('<li>This user is not booked today</li><br><button>Book Today</button><button>Book Another Day</button>')
+    $('<li>This user is not booked today</li><br><button id="book-today-button">Book Today</button><button id="book-another-button">Book Another Day</button>')
       .appendTo('#booking-suggestions');
   }
 

@@ -152,3 +152,28 @@ th {
   text-align: left;
   font-size: 20px;
 }
+
+#book-another-button {
+  margin-top: 20px;
+  background-color: $accent-nav;
+
+  &:hover {
+    background-color: darken($accent-nav, 15%);
+  }
+
+  &:active {
+    background-color: darken($accent-nav, 25%);
+  }
+}
+
+#book-today-button {
+  background-color: $accent-footer;
+
+  &:hover {
+    background-color: darken($accent-footer, 15%);
+  }
+
+  &:active {
+    background-color: darken($accent-footer, 25%);
+  }
+}
