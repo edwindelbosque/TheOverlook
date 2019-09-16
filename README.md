@@ -1,4 +1,4 @@
-# The Overlook Hotel: Management Application
+# The Overlook: A Hotel Management Application
 
 ## Summary
 
