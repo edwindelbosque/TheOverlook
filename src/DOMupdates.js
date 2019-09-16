@@ -99,6 +99,25 @@ const DOMupdates = {
   displayUnpopularDates(day) {
     $(`<li>${day.date} - ${day.bookings.length} bookings</li>`)
       .appendTo('#unpopular-dates');
+  },
+
+  displayBookingResults(object) {
+    $(`<article>
+    <section class="booking-result-1">
+      <h4>Room Type: ${object.roomType}</h4>
+      <h4>Room number: ${object.number}</h4>
+    </section>
+    <section class="booking-result-2">
+      <h4>Number of beds: ${object.numBeds}</h4>
+      <h4>Bed sizes: ${object.bedSize}</h4>
+      <h4>Bidet: Yes</h4>
+    </section>
+    <section class="booking-result-3">
+      <h4>Cost Per Night:</h4>
+      <h1>$${object.costPerNight}</h1>
+    </section>
+  </article>`)
+      .appendTo('#booking-results')
   }
 }
 

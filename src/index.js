@@ -7,9 +7,8 @@ import './images/search-icon.svg';
 import Hotel from './Hotel';
 
 let hotel, customerData, roomData, bookingData, roomServiceData;
-const today = getToday();
 
-displayCurrentDate(today);
+displayCurrentDate(getToday());
 $('.tabs-stage div').fadeOut(100);
 $('.tabs-stage div:first').delay(100).fadeIn(100);
 $('.tabs-nav li:first').addClass('tab-active');
@@ -32,12 +31,13 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServ
 
 setTimeout(() => {
   hotel = new Hotel(customerData, bookingData, roomServiceData, roomData)
-  hotel.booking.findRoomsAvailable(today);
-  hotel.getTotalDailyRevenue(today);
-  hotel.roomService.getDailyServices(today);
-  hotel.booking.findPopularDates(today);
-  hotel.booking.findUnpopularDates(today);
-}, 1000);
+  hotel.booking.findRoomsAvailable(getToday());
+  hotel.getTotalDailyRevenue(getToday());
+  hotel.roomService.getDailyServices(getToday());
+  hotel.booking.findPopularDates(getToday());
+  hotel.booking.findUnpopularDates(getToday());
+  hotel.booking.findAvailableRooms(getToday());
+}, 3000);
 
 $('.tabs-nav a').on('click', function (event) {
   event.preventDefault();
@@ -148,5 +148,15 @@ $('#order-customer-input').on('keypress', (e) => {
   if (e.which === 13) {
     const userInput = $('#order-customer-input').val()
     hotel.searchOrders(userInput);
+  }
+})
+
+$('search-bookings-button').on('click', () => {
+  const userInput = $('#search-bookings-input').val();
+})
+
+$('search-bookings-input').on('keypress', (e) => {
+  if (e.which === 13) {
+    const userInput = $('#search-bookings-input').val();
   }
 })

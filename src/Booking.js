@@ -75,6 +75,31 @@ class Booking {
       .sort((a, b) => ('' + a.date).localeCompare(b.date))
       .forEach(day => DOMupdates.displayUnpopularDates(day));
   }
+
+  findAvailableRoomNumbers(date) {
+    let availableRoomNumbers = this.roomData.map(room => room.number)
+    let occupiedRoomNumbers = this.bookingData
+      .filter(booking => booking.date === date)
+      .map(booking => booking.roomNumber);
+    occupiedRoomNumbers.forEach(roomNumber => {
+      let index = availableRoomNumbers.indexOf(roomNumber);
+      availableRoomNumbers.splice(index, 1);
+    })
+    return availableRoomNumbers;
+  }
+
+  findAvailableRooms(date) {
+    const availableRoomNumbers = this.findAvailableRoomNumbers(date);
+    let roomsAvailable = this.roomData.reduce((acc, room) => {
+      availableRoomNumbers.forEach(roomNumber => {
+        if (roomNumber === room.number) {
+          acc.push(room);
+        }
+      })
+      return acc;
+    }, [])
+    roomsAvailable.forEach(room => DOMupdates.displayBookingResults(room))
+  }
 }
 
 export default Booking;

@@ -2,13 +2,13 @@
 <html lang="en-US">
 
 <head>
-  <title>Overlook</title>
+  <title>The Overlook :: Administration</title>
   <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
 </head>
 
 <body>
   <nav>
-    <h2>Overlook</h2>
+    <h2>The Overlook</h2>
     <ul class="tabs-nav">
       <li><a href="#tab-main">Main</a></li>
       <li><a href="#tab-orders">Orders</a></li>
@@ -84,8 +84,16 @@
           <ul id="unpopular-dates"></ul>
         </section>
       </section>
-      <section>
-        <section></section>
+      <section class="general-room-search">
+        <section>
+          <h3>Search Rooms by Date</h3>
+          <input id="search-bookings-input" placeholder="e.g. 2019/09/08">
+          <button id="search-bookings-button">Search</button>
+          <ul id="search-booking-results"></ul>
+        </section>
+      </section>
+      <section class="booking-results" id="booking-results">
+
       </section>
     </div>
     <div id="tab-customers">
