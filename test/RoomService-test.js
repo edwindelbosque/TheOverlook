@@ -18,6 +18,7 @@ beforeEach(() => {
     'displayResetResults',
     'displayUserOrderSpenditure',
     'displayOrderHistory',
+    'displayOrderRevenue',
     'displayResetOrderHistory',
     'displayNoOrderHistory',
     'displaySearchOrder'
@@ -57,6 +58,11 @@ describe('RoomService', () => {
 
 
   describe('spies', () => {
+
+    it('should call DOM method when displaying todays revenue', () => {
+      roomService.getRoomServiceRevenue('2019/10/27');
+      expect(DOMupdates.displayOrderRevenue).to.have.been.called(1);
+    });
 
     it('should call DOM method when displaying today orders', () => {
       roomService.getDailyServices('2019/10/27');
