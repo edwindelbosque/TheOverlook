@@ -69,6 +69,8 @@ const DOMupdates = {
   },
 
   displayBookingHistory(booking) {
+    $('#table-header').fadeIn();
+    $('#no-order-history').remove();
     $(`
     <tr class="table-item-booking-history">
       <td>${booking.date}</td>
@@ -79,7 +81,8 @@ const DOMupdates = {
   },
 
   displayNoBookingHistory() {
-    $(`<li>This user has no booking history...</li>`)
+    $('#table-header').fadeOut();
+    $(`<li id="no-order-history">This user has no booking history...</li>`)
       .appendTo('#booking-history');
   },
 
@@ -106,23 +109,23 @@ const DOMupdates = {
   },
 
   displayPersonalizedSections() {
-    $('#general-order-section').hide();
-    $('#personalized-order-section').show();
-    $('#general-room-stats').hide();
-    $('#general-room-search').hide();
-    $('#search-results').hide();
-    $('#personalized-room-stats').show();
-    $('#general-view-button').show();
+    $('#general-order-section').fadeOut(150);
+    $('#general-room-stats').fadeOut(150);
+    $('#general-room-search').fadeOut(150);
+    $('#search-results').fadeOut(150);
+    $('#personalized-order-section').delay(150).fadeIn(150);
+    $('#personalized-room-stats').delay(150).fadeIn(150);
+    $('#general-view-button').delay(150).fadeIn(150);
   },
 
   displayGeneralSections() {
-    $('#personalized-order-section').hide();
-    $('#general-order-section').show();
-    $('#general-room-stats').show();
-    $('#general-room-search').show();
-    $('#search-results').show();
-    $('#personalized-room-stats').hide();
-    $('#general-view-button').hide();
+    $('#personalized-order-section').fadeOut(150);
+    $('#personalized-room-stats').fadeOut(150);
+    $('#general-view-button').fadeOut(150);
+    $('#general-order-section').delay(150).fadeIn(150);
+    $('#general-room-search').delay(150).fadeIn(150);
+    $('#search-results').delay(150).fadeIn(150);
+    $('#general-room-stats').delay(150).fadeIn(150);
   },
 
   displayPopularDates(day) {

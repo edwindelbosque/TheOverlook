@@ -170,6 +170,15 @@ $('#search-bookings-input').on('keypress', (e) => {
 })
 
 $('#general-view-button').on('click', () => {
-  $('#general-view-button').hide();
+  $('#general-view-button').fadeOut(150);
   hotel.goToGeneralView();
+})
+
+$('#personalized-room-stats').on('click', (e) => {
+  if (e.target.id === 'book-today-button') {
+    console.log('tooodayyy!');
+  }
+  if (e.target.id === 'book-another-button') {
+    console.log('laterrrr');
+  }
 })

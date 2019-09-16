@@ -73,7 +73,7 @@
   }
 
   button {
-    background-color: rgb(242, 242, 242);
+    background-color: $accent-footer;
     border-radius: 4px;
     height: 45px;
     margin-top: 5px;
@@ -81,12 +81,12 @@
     width: 280px;
     
     &:hover {
-      background-color: darken(rgb(235, 235, 235), 1%);
+      background-color: darken($accent-footer, 8%);
       transition: .15s; 
     }
   
     &:active {
-      background-color: darken(rgb(237, 237, 237), 5%);
+      background-color: darken($accent-footer, 13%);
     }
   }
 }
