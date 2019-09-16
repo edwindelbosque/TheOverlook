@@ -81,6 +81,7 @@ const DOMupdates = {
   },
 
   displayNoBookingHistory() {
+    $('#no-order-history').remove();
     $('#table-header').fadeOut();
     $(`<li id="no-order-history">This user has no booking history...</li>`)
       .appendTo('#booking-history');

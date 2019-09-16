@@ -144,6 +144,11 @@ a {
   width: 112px;
 }
 
+#add-customer-button,
+#submit-add-button {
+  background-color: $accent-nav;
+}
+
 #current-user {
   background-color: #ededed;
   border-radius: 4px;

@@ -177,3 +177,36 @@ th {
     background-color: darken($accent-footer, 25%);
   }
 }
+
+.filter-bookings {
+  background-color: rgb(220, 220, 220);
+  width: 100%;
+  display: flex;
+  border-radius: 3px;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30px;
+  border: 2px solid rgb(148, 148, 148);
+
+  header {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 95%;
+    border-bottom: 3px solid rgb(169, 169, 169);
+  }
+
+  main {
+    margin-top: 15px;
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+  }
+}
+
+.filterings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}

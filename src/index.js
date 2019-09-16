@@ -176,9 +176,11 @@ $('#general-view-button').on('click', () => {
 
 $('#personalized-room-stats').on('click', (e) => {
   if (e.target.id === 'book-today-button') {
-    console.log('tooodayyy!');
+    $('#personalized-room-stats').fadeOut(150);
+    $('#search-results').delay(150).fadeIn(150);
   }
   if (e.target.id === 'book-another-button') {
-    console.log('laterrrr');
+    $('#personalized-room-stats').fadeOut(150);
+    $('#search-results').delay(150).fadeIn(150);
   }
 })
