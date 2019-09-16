@@ -98,6 +98,7 @@ class Booking {
       })
       return acc;
     }, [])
+    DOMupdates.displayBookingResultsTitle(roomsAvailable.length, date)
     roomsAvailable.forEach(room => DOMupdates.displayBookingResults(room))
   }
 }

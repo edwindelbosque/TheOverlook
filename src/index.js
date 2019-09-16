@@ -37,7 +37,7 @@ setTimeout(() => {
   hotel.booking.findPopularDates(getToday());
   hotel.booking.findUnpopularDates(getToday());
   hotel.booking.findAvailableRooms(getToday());
-}, 3000);
+}, 1000);
 
 $('.tabs-nav a').on('click', function (event) {
   event.preventDefault();
@@ -151,12 +151,16 @@ $('#order-customer-input').on('keypress', (e) => {
   }
 })
 
-$('search-bookings-button').on('click', () => {
+$('#search-bookings-button').on('click', () => {
   const userInput = $('#search-bookings-input').val();
+  $('#booking-results').empty()
+  hotel.booking.findAvailableRooms(userInput);
 })
 
-$('search-bookings-input').on('keypress', (e) => {
+$('#search-bookings-input').on('keypress', (e) => {
   if (e.which === 13) {
     const userInput = $('#search-bookings-input').val();
+    $('#booking-results').empty();
+    hotel.booking.findAvailableRooms(userInput);
   }
 })
