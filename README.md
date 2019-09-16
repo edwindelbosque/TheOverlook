@@ -13,7 +13,7 @@ This is a hotel management tool for hotel staff to manage activities like custom
 5. Copy the localhost address `ex. http://localhost:8080/` in your Terminal and paste it into your browser
 6. OR visit the GitHub Pages site HERE!
 
-## Wireframes and Screenshots
+## Wireframes & Screenshots
 
 ## Goals
 
