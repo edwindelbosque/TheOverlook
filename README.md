@@ -14,7 +14,28 @@ This is a hotel management tool for hotel staff to manage activities like custom
 4. Once it has finished installing, run `npm start`
 5. Copy the localhost address `ex. http://localhost:8080/` in your Terminal and paste it into your browser
 
-## Wireframes & Screenshots
+## Screenshot
+
+![](https://user-images.githubusercontent.com/48811985/65086870-f895b180-d9a2-11e9-9e09-9a7c55314eab.gif)
+<details>
+ <summary>Testing Suite w/ Mocha, Chai & Spies</summary>
+<img width="601" src="https://user-images.githubusercontent.com/48811985/65086593-e9faca80-d9a1-11e9-9876-09e86e868111.png">
+</details>
+
+## Design Process
+
+I started the process by exploring a few hotel booking websites to get a general idea on color palettes and general structure of the pages, afterwards I came up with my own ideas.
+
+<details>
+  <summary>Wireframes</summary>
+<img width="600" src="https://user-images.githubusercontent.com/48811985/65087578-d2bddc00-d9a5-11e9-8999-ff7099f07455.jpg">
+<img width="600" src="https://user-images.githubusercontent.com/48811985/65087436-37c50200-d9a5-11e9-8de9-78a8bcb2587f.jpg">
+<img width="1431"  src="https://user-images.githubusercontent.com/48811985/65087026-9e492080-d9a3-11e9-9803-23818bb69810.png">
+<img width="1552" src="https://user-images.githubusercontent.com/48811985/65087038-a739f200-d9a3-11e9-92b7-a21a88dbb879.png">
+  </details>
+
+A few design aspects changed over the week as I started coding more.
+I think it is essential to experience by yourself how a product works before you actually build it, it gave me a better idea on the steps of booking a hotel room and how I could implement them myself into my project.
 
 ## Goals
 
