@@ -73,7 +73,7 @@ const DOMupdates = {
     $('#no-order-history').remove();
     $(`
     <tr class="table-item-booking-history">
-      <td>${booking.date}</td>
+      <td>${new Date(booking.date).toString().slice(3, 15)}</td>
       <td>${booking.room.roomType} </td>
       <td>${booking.room.costPerNight}</td>
     </tr>
@@ -102,7 +102,7 @@ const DOMupdates = {
   },
 
   displayOrderHistory(order) {
-    $(`<li>${order.date} - $${order.totalCost}</li>`)
+    $(`<li>${new Date(order.date).toString().slice(3, 15)} - $${order.totalCost}</li>`)
       .appendTo('#order-history-list');
   },
 
@@ -143,17 +143,17 @@ const DOMupdates = {
   },
 
   displayPopularDates(day) {
-    $(`<li>${day.date} - ${day.bookings.length} bookings</li>`)
+    $(`<li>${new Date(day.date).toString().slice(3, 15)} - ${day.bookings.length} bookings</li>`)
       .appendTo('#popular-dates');
   },
 
   displayUnpopularDates(day) {
-    $(`<li>${day.date} - ${day.bookings.length} bookings</li>`)
+    $(`<li>${new Date(day.date).toString().slice(3, 15)} - ${day.bookings.length} bookings</li>`)
       .appendTo('#unpopular-dates');
   },
 
   displayBookingResultsTitle(number, date) {
-    $('#room-search-title').text(`${number} rooms available on ${date}`);
+    $('#room-search-title').text(`${number} rooms available on ${new Date(date).toString().slice(3, 15)}`);
   },
 
   displayResetBookingResults() {
