@@ -4,6 +4,8 @@
 
 This is a hotel management tool for hotel staff to manage activities like customer details, booking details for different types of rooms, unbooking rooms, and calculating/showing a customer’s total bill.
 
+### Check it out [here!](https://edwindelbosque.github.io/TheOverlook/)
+
 ## How to install
 
 1. Fork and clone down this repository
@@ -11,7 +13,7 @@ This is a hotel management tool for hotel staff to manage activities like custom
 3. Run `npm install` to install the webpack dependencies
 4. Once it has finished installing, run `npm start`
 5. Copy the localhost address `ex. http://localhost:8080/` in your Terminal and paste it into your browser
-6. OR visit the GitHub Pages site HERE!
+6. OR visit the GitHub Pages site [HERE](https://edwindelbosque.github.io/TheOverlook/)!
 
 ## Wireframes & Screenshots
 
