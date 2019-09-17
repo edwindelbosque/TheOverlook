@@ -102,7 +102,9 @@ const DOMupdates = {
   },
 
   displayOrderHistory(order) {
-    $(`<li>${new Date(order.date).toString().slice(3, 15)} - $${order.totalCost}</li>`)
+    $(`<li>${new Date(order.date)
+      .toString()
+      .slice(3, 15)} - $${order.totalCost}</li>`)
       .appendTo('#order-history-list');
   },
 
@@ -143,17 +145,23 @@ const DOMupdates = {
   },
 
   displayPopularDates(day) {
-    $(`<li>${new Date(day.date).toString().slice(3, 15)} - ${day.bookings.length} bookings</li>`)
+    $(`<li>${new Date(day.date)
+      .toString()
+      .slice(3, 15)} - ${day.bookings.length} bookings</li>`)
       .appendTo('#popular-dates');
   },
 
   displayUnpopularDates(day) {
-    $(`<li>${new Date(day.date).toString().slice(3, 15)} - ${day.bookings.length} bookings</li>`)
+    $(`<li>${new Date(day.date)
+      .toString()
+      .slice(3, 15)} - ${day.bookings.length} bookings</li>`)
       .appendTo('#unpopular-dates');
   },
 
   displayBookingResultsTitle(number, date) {
-    $('#room-search-title').text(`${number} rooms available on ${new Date(date).toString().slice(3, 15)}`);
+    $('#room-search-title')
+      .text(`${number} rooms available on ${new Date(date).toString()
+        .slice(3, 15)}`);
   },
 
   displayResetBookingResults() {
