@@ -81,8 +81,7 @@ $('#general-view-button').hide();
 $('#filter-bookings').hide();
 $('#food-price').text('');
 $('#get-room-service-button').hide();
-// $('#room-service-menu').hide();
-// $('#get-room-service-section').hide();
+$('#get-room-service-section').hide();
 
 $('#search-customer-button').on('click', () => {
   $('#search-customer-input').toggle();
@@ -307,4 +306,15 @@ $('#room-service-select').change(function () {
     $('#get-room-service-button').hide();
     $('#food-price').text('');
   }
+})
+
+$('#get-room-service-button').on('click', () => {
+  const foodChoice = $('#room-service-select').val();
+  hotel.processOrder(foodChoice, getToday());
+  $('#room-service-select').prop('selectedIndex', 0);
+  $('#get-room-service-button').hide();
+  $('#food-price').text('');
+  hotel.getTotalDailyRevenue(getToday());
+  hotel.roomService.getDailyServices(getToday());
+  hotel.toggleCustomizedOrders()
 })

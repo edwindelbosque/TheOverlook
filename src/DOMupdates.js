@@ -136,6 +136,7 @@ const DOMupdates = {
     $('#personalized-room-stats').fadeOut(150);
     $('#general-view-button').fadeOut(150);
     $('#filter-bookings').fadeOut(150);
+    $('#get-room-service-section').fadeOut(150);
     $('#general-order-section').delay(150).fadeIn(150);
     $('#general-room-search').delay(150).fadeIn(150);
     $('#search-results').delay(150).fadeIn(150);
@@ -209,6 +210,7 @@ const DOMupdates = {
 
   displayBookAnotherRoom() {
     $('#booking-suggestions').empty();
+    $('#get-room-service-section').delay(150).fadeIn(150);
     $(`<li>This user has booked today!</li><br>
     <button id="book-another-button">Book Another Day</button>`)
       .appendTo('#booking-suggestions');

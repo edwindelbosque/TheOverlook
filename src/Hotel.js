@@ -49,6 +49,10 @@ class Hotel {
     this.toggleCustomizedOrders();
     this.suggestBooking(date);
   }
+
+  processOrder(foodChoice, currentDate) {
+    this.roomService.createOrder(this.user.id, foodChoice, currentDate);
+  }
 }
 
 export default Hotel;

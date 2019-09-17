@@ -11,7 +11,7 @@ class RoomService {
       acc += service.totalCost;
       return acc;
     }, 0)
-    DOMupdates.displayOrderRevenue(totalRevenue)
+    DOMupdates.displayOrderRevenue(Math.round(totalRevenue))
     return Math.round(totalRevenue);
   }
 
@@ -40,7 +40,7 @@ class RoomService {
       acc += log.totalCost;
       return acc;
     }, 0)
-    DOMupdates.displayUserOrderSpenditure(amount);
+    DOMupdates.displayUserOrderSpenditure(Math.round(amount));
   }
 
   getOrderHistory(id) {
@@ -77,6 +77,18 @@ class RoomService {
     const selectedFood = this.roomServiceData
       .find(service => service.food === foodChoice);
     return selectedFood.totalCost;
+  }
+
+  createOrder(id, foodChoice, currentDate) {
+    const selectedFood = this.roomServiceData
+      .find(food => food.food === foodChoice);
+    const foodOrder = {
+      userID: id,
+      date: currentDate,
+      food: foodChoice,
+      totalCost: selectedFood.totalCost
+    }
+    this.roomServiceData.push(foodOrder);
   }
 }
 
