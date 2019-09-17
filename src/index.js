@@ -246,3 +246,11 @@ $('#select-bidet').change(function () {
 
   hotel.booking.filterRoomSearch(getToday(), roomType, numBeds, bedSize, bidet);
 })
+
+$('#search-results').on('click', (e) => {
+  let dateInput = getToday();
+  let roomNumber = parseInt($(e.target).attr('data'));
+  if (roomNumber) {
+    hotel.bookRoom(roomNumber, dateInput);
+  }
+})

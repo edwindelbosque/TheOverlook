@@ -201,7 +201,7 @@ const DOMupdates = {
     <h1><b>$${room.costPerNight}</b></h1>
     </section>
     <section>
-    <button class="book-room" id="${room.number}">Select</button>
+    <button class="book-room" data="${room.number}">Select</button>
     </section>
     </article>`)
       .appendTo('#booking-results');

@@ -25,15 +25,15 @@ class Hotel {
       this.booking.findBookingHistory(this.user.id);
       DOMupdates.displayPersonalizedSections();
     } else {
-      DOMupdates.displayGeneralSections()
+      DOMupdates.displayGeneralSections();
     }
   }
 
   goToGeneralView() {
     this.user.name = undefined;
     this.user.id = undefined;
-    DOMupdates.displayUserReset()
-    DOMupdates.displayGeneralSections()
+    DOMupdates.displayUserReset();
+    DOMupdates.displayGeneralSections();
   }
 
   searchOrders(date) {
@@ -42,6 +42,10 @@ class Hotel {
 
   suggestBooking(date) {
     this.booking.bookToday(this.user.id, date);
+  }
+
+  bookRoom(number, date) {
+    this.booking.bookRoom(number, date, this.user.id);
   }
 }
 

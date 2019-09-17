@@ -159,6 +159,15 @@ class Booking {
       : DOMupdates.displayNoResultsToday();
   }
 
+  bookRoom(number, day, id) {
+    const newBooking = {
+      userID: id,
+      date: day,
+      roomNumber: number
+    };
+    this.bookingData.push(newBooking);
+  }
+
 }
 
 export default Booking;
