@@ -63,6 +63,21 @@ class RoomService {
     }, 0);
     DOMupdates.displaySearchOrder(totalSpenditure);
   }
+
+  findRoomServiceOptions() {
+    return this.roomServiceData.reduce((acc, food) => {
+      if (!acc.includes(food.food)) {
+        acc.push(food.food);
+      }
+      return acc;
+    }, []).forEach(food => DOMupdates.displayFoodItems(food));
+  }
+
+  findFoodPrice(foodChoice) {
+    const selectedFood = this.roomServiceData
+      .find(service => service.food === foodChoice);
+    return selectedFood.totalCost;
+  }
 }
 
 export default RoomService;

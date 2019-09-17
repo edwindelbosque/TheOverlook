@@ -36,6 +36,7 @@ setTimeout(() => {
   hotel.booking.findPopularDates(getToday());
   hotel.booking.findUnpopularDates(getToday());
   hotel.booking.findAvailableRooms(getToday());
+  hotel.roomService.findRoomServiceOptions();
 }, 1000);
 
 $('.tabs-nav a').on('click', function (event) {
@@ -78,6 +79,10 @@ $('#personalized-order-section').hide();
 $('#personalized-room-stats').hide();
 $('#general-view-button').hide();
 $('#filter-bookings').hide();
+$('#food-price').text('');
+$('#get-room-service-button').hide();
+// $('#room-service-menu').hide();
+// $('#get-room-service-section').hide();
 
 $('#search-customer-button').on('click', () => {
   $('#search-customer-input').toggle();
@@ -289,5 +294,17 @@ $('#search-results').on('click', (e) => {
     hotel.booking.findRoomsAvailable(getToday());
     hotel.getTotalDailyRevenue(getToday());
     hotel.roomService.getDailyServices(getToday());
+  }
+})
+
+$('#room-service-select').change(function () {
+  const foodChoice = $(this).val();
+  if (foodChoice !== 'undefined') {
+    const price = hotel.roomService.findFoodPrice(foodChoice);
+    $('#get-room-service-button').show();
+    $('#food-price').text(`$${price}`);
+  } else {
+    $('#get-room-service-button').hide();
+    $('#food-price').text('');
   }
 })

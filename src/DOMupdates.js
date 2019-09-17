@@ -212,6 +212,15 @@ const DOMupdates = {
     $(`<li>This user has booked today!</li><br>
     <button id="book-another-button">Book Another Day</button>`)
       .appendTo('#booking-suggestions');
+    this.displayRoomServiceButton();
+  },
+
+  displayRoomServiceButton() {
+    $('#get-room-service-section').show();
+  },
+
+  displayRoomServiceMenu() {
+    $('#get-room-service-section').show();
   },
 
   displayBookToday() {
@@ -219,6 +228,11 @@ const DOMupdates = {
     $(`<li>This user is not booked today</li><br>
     <button id="book-another-button">Book Now</button>`)
       .appendTo('#booking-suggestions');
+  },
+
+  displayFoodItems(food) {
+    $(`<option value="${food}">${food}</option>`)
+      .appendTo('#room-service-select');
   }
 
 }
