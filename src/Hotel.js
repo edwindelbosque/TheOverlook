@@ -46,6 +46,8 @@ class Hotel {
 
   bookRoom(number, date) {
     this.booking.bookRoom(number, date, this.user.id);
+    this.toggleCustomizedOrders();
+    this.suggestBooking(date);
   }
 }
 
