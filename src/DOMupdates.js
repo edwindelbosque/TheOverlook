@@ -14,7 +14,7 @@ const DOMupdates = {
   },
 
   displayUserReset() {
-    $('#current-user').text('General View');
+    $('#current-user').text('All customers');
   },
 
   displayUserNotFound() {
