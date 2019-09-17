@@ -162,7 +162,7 @@ const DOMupdates = {
 
   displayNoResultsToday() {
     $(`<h2 class="search-404">404: No rooms available..</h2>
-      <h2 class="search-advice">Try loosening your filters</h2>`)
+      <h2 class="search-advice">Try loosening your filters!</h2>`)
       .appendTo('#booking-results');
   },
 
@@ -185,15 +185,40 @@ const DOMupdates = {
       .appendTo('#booking-results');
   },
 
+  displaySelectBookingResults(room) {
+    $(`<article class="select-room-article">
+    <section class="booking-result-4">
+    <h4>Room Type: <b>${room.roomType}</b></h4>
+    <h4>Room number: <b>${room.number}</b></h4>
+    </section>
+    <section class="booking-result-5">
+    <h4>Number of beds: <b>${room.numBeds}</b></h4>
+    <h4>Bed sizes:<b> ${room.bedSize}</b></h4>
+    <h4>Includes bidet:<b> ${room.bidet ? 'Yes' : 'No'}</b></h4>
+    </section>
+    <section class="booking-result-6">
+    <h4>Cost Per Night:</h4>
+    <h1><b>$${room.costPerNight}</b></h1>
+    </section>
+    <section>
+    <button class="book-room" id="${room.number}">Select</button>
+    </section>
+    </article>`)
+      .appendTo('#booking-results');
+  },
+
   displayBookAnotherRoom() {
     $('#booking-suggestions').empty();
-    $('<li>This user has booked today!</li><br><button id="book-another-button">Book Another Day</button>')
+    $(`<li>This user has booked today!</li><br>
+    <button id="book-another-button">Book Another Day</button>`)
       .appendTo('#booking-suggestions');
   },
 
   displayBookToday() {
     $('#booking-suggestions').empty();
-    $('<li>This user is not booked today</li><br><button id="book-today-button">Book Today</button><button id="book-another-button">Book Another Day</button>')
+    $(`<li>This user is not booked today</li><br>
+    <button id="book-today-button">Book Today</button>
+    <button id="book-another-button">Book Another Day</button>`)
       .appendTo('#booking-suggestions');
   }
 

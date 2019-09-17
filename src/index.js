@@ -183,11 +183,15 @@ $('#personalized-room-stats').on('click', (e) => {
     $('#personalized-room-stats').fadeOut(150);
     $('#search-results').delay(150).fadeIn(150);
     $('#filter-bookings').delay(150).fadeIn(150);
+    hotel.booking.filterRoomSearch(getToday(),
+      'undefined', 'undefined', 'undefined', 'undefined')
   }
   if (e.target.id === 'book-another-button') {
     $('#personalized-room-stats').fadeOut(150);
     $('#search-results').delay(150).fadeIn(150);
     $('#filter-bookings').delay(150).fadeIn(150);
+    hotel.booking.filterRoomSearch(getToday(),
+      'undefined', 'undefined', 'undefined', 'undefined')
   }
 })
 

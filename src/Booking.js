@@ -155,7 +155,7 @@ class Booking {
     DOMupdates.displayBookingResultsTitle(layer4.length, date)
 
     layer4.length
-      ? layer4.forEach(room => DOMupdates.displayBookingResults(room))
+      ? layer4.forEach(room => DOMupdates.displaySelectBookingResults(room))
       : DOMupdates.displayNoResultsToday();
   }
 
