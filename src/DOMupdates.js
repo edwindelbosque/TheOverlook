@@ -160,22 +160,28 @@ const DOMupdates = {
     $('#booking-results').empty();
   },
 
+  displayNoResultsToday() {
+    $(`<h2 class="search-404">404: No rooms available..</h2>
+      <h2 class="search-advice">Try loosening your filters</h2>`)
+      .appendTo('#booking-results');
+  },
+
   displayBookingResults(room) {
     $(`<article>
     <section class="booking-result-1">
-      <h4>Room Type: <b>${room.roomType}</b></h4>
-      <h4>Room number: <b>${room.number}</b></h4>
+    <h4>Room Type: <b>${room.roomType}</b></h4>
+    <h4>Room number: <b>${room.number}</b></h4>
     </section>
     <section class="booking-result-2">
-      <h4>Number of beds: <b>${room.numBeds}</b></h4>
-      <h4>Bed sizes:<b> ${room.bedSize}</b></h4>
-      <h4>Includes bidet:<b> ${room.bidet ? 'Yes' : 'No'}</b></h4>
+    <h4>Number of beds: <b>${room.numBeds}</b></h4>
+    <h4>Bed sizes:<b> ${room.bedSize}</b></h4>
+    <h4>Includes bidet:<b> ${room.bidet ? 'Yes' : 'No'}</b></h4>
     </section>
     <section class="booking-result-3">
-      <h4>Cost Per Night:</h4>
-      <h1><b>$${room.costPerNight}</b></h1>
+    <h4>Cost Per Night:</h4>
+    <h1><b>$${room.costPerNight}</b></h1>
     </section>
-  </article>`)
+    </article>`)
       .appendTo('#booking-results');
   },
 

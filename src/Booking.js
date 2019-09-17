@@ -151,9 +151,12 @@ class Booking {
       ? layer4 = layer3.filter(room => room.bidet === bidet)
       : layer4 = layer3;
 
-    DOMupdates.displayBookingResultsTitle(layer4.length, date);
     DOMupdates.displayResetBookingResults();
-    layer4.forEach(room => DOMupdates.displayBookingResults(room));
+    DOMupdates.displayBookingResultsTitle(layer4.length, date)
+
+    layer4.length
+      ? layer4.forEach(room => DOMupdates.displayBookingResults(room))
+      : DOMupdates.displayNoResultsToday();
   }
 
 }
