@@ -5,7 +5,7 @@ import './images/add-icon.svg';
 import './images/search-icon.svg';
 import Hotel from './Hotel';
 
-let hotel, customerData, roomData, bookingData, roomServiceData;
+let hotel;
 
 $('#search-customer-input').hide();
 $('#add-customer-input').hide();
@@ -46,32 +46,31 @@ $('.tabs-stage div').fadeOut(100);
 $('.tabs-stage div:first').delay(100).fadeIn(100);
 $('.tabs-nav li:first').addClass('tab-active');
 
-fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
-  .then(response => response.json())
-  .then(data => customerData = data.users)
-
-fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
-  .then(response => response.json())
-  .then(data => roomData = data.rooms)
-
-fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
-  .then(response => response.json())
-  .then(data => bookingData = data.bookings)
-
-fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices')
-  .then(response => response.json())
-  .then(data => roomServiceData = data.roomServices)
-
-setTimeout(() => {
-  hotel = new Hotel(customerData, bookingData, roomServiceData, roomData)
-  hotel.booking.findRoomsAvailable(getToday());
-  hotel.getTotalDailyRevenue(getToday());
-  hotel.roomService.getDailyServices(getToday());
-  hotel.booking.findPopularDates(getToday());
-  hotel.booking.findUnpopularDates(getToday());
-  hotel.booking.findAvailableRooms(getToday());
-  hotel.roomService.findRoomServiceOptions();
-}, 1000);
+(() => {
+  let customerData, roomData, bookingData, roomServiceData;
+  fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
+    .then(response => response.json())
+    .then(data => customerData = data.users)
+    .then(() => fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
+      .then(response => response.json())
+      .then(data => roomData = data.rooms)
+      .then(() => fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
+        .then(response => response.json())
+        .then(data => bookingData = data.bookings)
+        .then(() => fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices')
+          .then(response => response.json())
+          .then(data => roomServiceData = data.roomServices)
+          .then(() => {
+            hotel = new Hotel(customerData, bookingData, roomServiceData, roomData)
+            hotel.booking.findRoomsAvailable(getToday());
+            hotel.getTotalDailyRevenue(getToday());
+            hotel.roomService.getDailyServices(getToday());
+            hotel.booking.findPopularDates(getToday());
+            hotel.booking.findUnpopularDates(getToday());
+            hotel.booking.findAvailableRooms(getToday());
+            hotel.roomService.findRoomServiceOptions();
+          }))))
+})()
 
 $('.tabs-nav a').on('click', function (e) {
   e.preventDefault();
@@ -113,6 +112,7 @@ $('#submit-search-button').on('click', () => {
 })
 
 $('#search-customer-input').on('keypress', (e) => {
+
   if (e.which === 13) {
     hotel.user.findUser($('#search-customer-input').val())
     $('#search-customer-input').val('')
@@ -129,6 +129,7 @@ $('#submit-add-button').on('click', () => {
 })
 
 $('#add-customer-input').on('keypress', (e) => {
+
   if (e.which === 13) {
     hotel.user.checkAddUser($('#add-customer-input').val())
     $('#add-customer-input').val('')
@@ -143,6 +144,7 @@ $('#order-date-button').on('click', () => {
 })
 
 $('#order-date-input').on('keypress', (e) => {
+
   if (e.which === 13) {
     const inputValue = $('#order-date-input').val();
     hotel.roomService.searchOrders(inputValue);
@@ -155,6 +157,7 @@ $('#spent-order-button').on('click', () => {
 });
 
 $('#order-customer-input').on('keypress', (e) => {
+
   if (e.which === 13) {
     const userInput = $('#order-customer-input').val()
     hotel.searchOrders(userInput);
@@ -172,6 +175,7 @@ $('#search-bookings-button').on('click', () => {
 })
 
 $('#search-bookings-input').on('keypress', (e) => {
+
   if (e.which === 13) {
     findNewRoomsAvailable();
   }
@@ -188,6 +192,7 @@ $('#general-view-button').on('click', () => {
 })
 
 $('#personalized-room-stats').on('click', (e) => {
+
   if (e.target.id === 'book-another-button') {
     const dateInput = $('#search-date-booking-input').val(getToday());
     $('#personalized-room-stats').fadeOut(150);
@@ -221,6 +226,7 @@ $('#search-date-booking-button').on('click', () => {
 })
 
 $('#search-date-booking-input').on('keypress', (e) => {
+
   if (e.which === 13) {
     filterBookings();
   }
@@ -245,6 +251,7 @@ $('#select-bidet').change(() => {
 $('#search-results').on('click', (e) => {
   const dateInput = $('#search-date-booking-input').val()
   const roomNumber = parseInt($(e.target).attr('data'));
+
   if (roomNumber) {
     hotel.bookRoom(roomNumber, dateInput);
     hotel.booking.findRoomsAvailable(getToday());
@@ -255,6 +262,7 @@ $('#search-results').on('click', (e) => {
 
 $('#room-service-select').change(() => {
   const foodChoice = $('#room-service-select').val();
+
   if (foodChoice !== 'undefined') {
     const price = hotel.roomService.findFoodPrice(foodChoice);
     $('#get-room-service-button').show();

@@ -66,6 +66,7 @@ class RoomService {
 
   findRoomServiceOptions() {
     return this.roomServiceData.reduce((acc, food) => {
+
       if (!acc.includes(food.food)) {
         acc.push(food.food);
       }

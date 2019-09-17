@@ -10,6 +10,7 @@ class User {
   findUser(name) {
     const user = this.userData
       .find(user => user.name.toUpperCase() === name.toUpperCase());
+
     if (this.name !== undefined
       && name.toUpperCase() === this.name.toUpperCase()) {
       DOMupdates.displayUserAlreadySelected()
@@ -27,6 +28,7 @@ class User {
 
   checkAddUser(name) {
     const capitalizedNames = this.userData.map(user => user.name.toUpperCase());
+
     if (capitalizedNames.includes(name.toUpperCase())) {
       DOMupdates.displayUserAlreadyExists()
     } else if (name.split(' ').length < 2) {

@@ -19,6 +19,7 @@ class Hotel {
   }
 
   toggleCustomizedOrders() {
+
     if (this.user.id !== undefined) {
       this.roomService.findTotalSpent(this.user.id);
       this.roomService.getOrderHistory(this.user.id);

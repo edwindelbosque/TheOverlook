@@ -30,6 +30,7 @@ class Booking {
 
   findBookingsPerDate() {
     const bookingsPerDate = this.sortBookingDates().reduce((acc, booking) => {
+
       if (!acc[booking.date]) {
         acc[booking.date] = [];
       }
@@ -41,6 +42,7 @@ class Booking {
 
   getArrayOfDates() {
     return this.sortBookingDates().reduce((acc, booking) => {
+
       if (!acc.includes(booking.date)) {
         acc.push(booking.date);
       }
@@ -93,6 +95,7 @@ class Booking {
     const availableRoomNumbers = this.findAvailableRoomNumbers(date);
     const roomsAvailable = this.roomData.reduce((acc, room) => {
       availableRoomNumbers.forEach(roomNumber => {
+
         if (roomNumber === room.number) {
           acc.push(room);
         }
