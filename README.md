@@ -56,3 +56,4 @@ I think it is essential to experience by yourself how a product works before you
 - HTML
 - SASS
 - Mocha, Chai & Spies
+- Sketch
