@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import './css/base.scss';
-import './images/wave-image.png';
 import './images/favicon.png';
 import './images/add-icon.svg';
 import './images/search-icon.svg';
