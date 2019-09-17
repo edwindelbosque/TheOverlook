@@ -122,6 +122,7 @@ $('#submit-add-button').on('click', () => {
   hotel.user.checkAddUser($('#add-customer-input').val())
   $('#add-customer-input').val('')
   hotel.toggleCustomizedOrders()
+  hotel.suggestBooking(getToday());
 })
 
 $('#add-customer-input').on('keypress', (e) => {
@@ -129,6 +130,7 @@ $('#add-customer-input').on('keypress', (e) => {
     hotel.user.checkAddUser($('#add-customer-input').val())
     $('#add-customer-input').val('')
     hotel.toggleCustomizedOrders()
+    hotel.suggestBooking(getToday());
   }
 });
 
@@ -173,6 +175,7 @@ $('#search-bookings-input').on('keypress', (e) => {
 $('#general-view-button').on('click', () => {
   $('#general-view-button').fadeOut(150);
   hotel.goToGeneralView();
+  hotel.booking.findAvailableRooms(getToday());
 })
 
 $('#personalized-room-stats').on('click', (e) => {

@@ -118,9 +118,9 @@ class Booking {
       acc += room.room.costPerNight;
       return (Math.round(acc))
     }, 0).toLocaleString();
-    DOMupdates.displayBookingHistoryTotal(totalUserRevenue);
     userRooms.length
-      ? userRooms.forEach(booking => DOMupdates.displayBookingHistory(booking))
+      ? (DOMupdates.displayBookingHistoryTotal(totalUserRevenue), userRooms
+        .forEach(booking => DOMupdates.displayBookingHistory(booking)))
       : DOMupdates.displayNoBookingHistory();
   }
 
@@ -143,7 +143,6 @@ class Booking {
     numBeds !== 'undefined'
       ? layer2 = layer1.filter(room => room.numBeds === numBeds)
       : layer2 = layer1;
-
     bedSize !== 'undefined'
       ? layer3 = layer2.filter(room => room.bedSize === bedSize)
       : layer3 = layer2;
