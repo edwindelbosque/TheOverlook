@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>The Overlook :: Administration</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+</head>
+
+<body>
+  <nav>
+    <h2>The Overlook</h2>
+    <ul class="tabs-nav">
+      <li><a href="#tab-main">Main</a></li>
+      <li><a href="#tab-orders">Orders</a></li>
+      <li><a href="#tab-rooms">Rooms</a></li>
+      <li><a href="#tab-customers">Customers</a></li>
+    </ul>
+  </nav>
+  <section class="customer-tab">
+    <h3>Currently Viewing — <span id="current-user">General View</span></h3>
+    <h4 class="general-view-button" id="general-view-button">+</h4>
+  </section>
+  <section class="tabs-stage">
+    <div id="tab-main">
+      <h1>Main</h1>
+      <main class="tab-main">
+        <h4>• <span id="date">date</span></h4>
+        <h4>• There are <span id="rooms-available">XX</span> rooms available today</h4>
+        <h4>• Total Revenue: $<span id="overall-revenue">XX</span></h4>
+      </main>
+    </div>
+    <div id="tab-orders" class="tab-orders">
+      <h1>Orders</h1>
+      <main class="orders-main" id="general-order-section">
+        <section class="orders-section-1">
+          <h4 id="order-today-revenue">Today</h4>
+          <ul id="orders-today">
+          </ul>
+        </section>
+        <section class="search-orders-section">
+          <section class="orders-section-2">
+            <h4>Search by Date</h4>
+            <input placeholder="e.g. 2019/08/08" id="order-date-input">
+            <button id="order-date-button">Search</button>
+            <p id="invalid-date"></p>
+          </section>
+          <section class="orders-section-3">
+            <h4 id="results-title"></h4>
+            <ul id="orders-results">
+            </ul>
+          </section>
+        </section>
+      </main>
+      <main class="orders-main-2" id="personalized-order-section">
+        <h4 class="revenue-customer">Revenue from customer</h4>
+        <section class="order-personalized">
+          <section class="orders-section-5">
+            <section class="all-time-orders">
+              <h4>All-time: $<span id="total-orders-amount">XXX</span></h4>
+            </section>
+            <section class="search-guest-orders">
+              <h4>Search by Date</h4>
+              <input placeholder="e.g. 2019/08/08" id="order-customer-input">
+              <button id="spent-order-button">Search</button>
+              <h4 id="money-spent-date"></h4>
+            </section>
+          </section>
+          <section class="order-history">
+            <h4>Order History</h4>
+            <ul id="order-history-list">
+            </ul>
+          </section>
+        </section>
+      </main>
+    </div>
+    <div id="tab-rooms" class="rooms-tab">
+      <h1>Rooms</h1>
+      <section id="filter-bookings" class="filter-bookings">
+        <header>
+          <h4>Search Available Bookings</h4>
+        </header>
+        <main>
+          <section>
+            <article class="filterings">
+              <h4>Date:</h4>
+              <input placeholder="2019/10/23" id="search-date-booking-input">
+              <button id="search-date-booking-button">Search</button>
+            </article>
+            <article class="filterings">
+              <h4>Room Type:</h4>
+              <select id="select-room-type">
+                <option value="undefined">select</option>
+                <option value="single room">Single Room</option>
+                <option value="suite">Suite</option>
+                <option value="residential suite">Residential Suite</option>
+                <option value="junior suite">Junior Suite</option>
+              </select>
+            </article>
+          </section>
+          <section>
+            <article class="filterings">
+              <h4>Number of Beds:</h4>
+              <select id="select-bed-number">
+                <option value="undefined">select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </article>
+            <article class="filterings">
+              <h4>Bed Size:</h4>
+              <select id="select-bed-size">
+                <option value="undefined">select</option>
+                <option value="king">King</option>
+                <option value="queen">Queen</option>
+                <option value="full">Full</option>
+                <option value="twin">Twin</option>
+              </select>
+            </article>
+          </section>
+          <section>
+            <article class="filterings">
+              <h4>Include Bidet:</h4>
+              <select id="select-bidet">
+                <option value="undefined">select</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </article>
+          </section>
+        </main>
+      </section>
+      <section class="general-room-stats" id="general-room-stats">
+        <section>
+          <h4>Upcoming <b>popular</b> dates</h4>
+          <ul id="popular-dates"></ul>
+        </section>
+        <section>
+          <h4>Upcoming <b>unpopular</b> dates</h4>
+          <ul id="unpopular-dates"></ul>
+        </section>
+      </section>
+      <section class="general-room-search" id="general-room-search">
+        <section>
+          <h3>Search Rooms by Date</h3>
+          <input id="search-bookings-input" placeholder="e.g. 2019/09/08">
+          <button id="search-bookings-button">Search</button>
+          <ul id="search-booking-results"></ul>
+        </section>
+      </section>
+      <section id="search-results">
+        <h1 id="room-search-title">19 rooms available today</h1>
+        <section class="booking-results" id="booking-results">
+        </section>
+      </section>
+      <section class="general-room-stats" id="personalized-room-stats">
+        <section>
+          <h4>Booking History</h4>
+          <table style="width:100%">
+            <tr id="table-header">
+              <th>Date</th>
+              <th>Room Type</th>
+              <th>Cost</th>
+            </tr>
+            <tr id="booking-history">
+            </tr>
+          </table>
+        </section>
+        <section>
+          <h4>Booking Suggestions</h4>
+          <ul id="booking-suggestions">
+          </ul>
+        </section>
+      </section>
+    </div>
+    <div id="tab-customers">
+      <h1>Customers</h1>
+      <img class=" svg-icon" src="./images/search-icon.svg">
+      <button id="search-customer-button">Search guest</button>
+      <input placeholder="e.g. Khalid Williams" id="search-customer-input">
+      <button id="submit-search-button">Submit</button>
+      <p id="user-not-found"></p>
+      <br>
+      <br>
+      <img class="svg-icon" src="./images/add-icon.svg">
+      <button id="add-customer-button">Add guest</button>
+      <input placeholder="e.g. Brittany Storoz" id="add-customer-input">
+      <button id="submit-add-button">Submit</button>
+      <p id="user-already-exists"></p>
+    </div>
+  </section>
+
+<script type="text/javascript" src="main.bundle.js"></script></body>
+
+</html>
