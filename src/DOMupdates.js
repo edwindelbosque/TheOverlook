@@ -85,7 +85,7 @@ const DOMupdates = {
     $(`
     <tr class="table-item-booking-history">
       <td><b>TOTAL</b></td>
-      <td><b>-</b></td>
+      <td><b></b></td>
       <td><b>${amount}</b></td>
     </tr>
     `).insertAfter('#booking-history');
@@ -217,8 +217,7 @@ const DOMupdates = {
   displayBookToday() {
     $('#booking-suggestions').empty();
     $(`<li>This user is not booked today</li><br>
-    <button id="book-today-button">Book Today</button>
-    <button id="book-another-button">Book Another Day</button>`)
+    <button id="book-another-button">Book Now</button>`)
       .appendTo('#booking-suggestions');
   }
 

@@ -165,27 +165,15 @@ th {
 }
 
 #book-another-button {
-  margin-top: 20px;
-  background-color: $accent-nav;
+  margin-top: -10px;
+  background-color: #ff9595;
 
   &:hover {
-    background-color: darken($accent-nav, 15%);
+    background-color: darken(#ff9595, 6%);
   }
 
   &:active {
-    background-color: darken($accent-nav, 25%);
-  }
-}
-
-#book-today-button {
-  background-color: $accent-footer;
-
-  &:hover {
-    background-color: darken($accent-footer, 15%);
-  }
-
-  &:active {
-    background-color: darken($accent-footer, 25%);
+    background-color: darken(#ff9595, 12%);
   }
 }
 
@@ -229,6 +217,19 @@ th {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  input {
+    width: 130px;
+    font-size: 16px;
+    height: 32px;
+  }
+
+  button {
+    width: 65px;
+    font-size: 16px;
+    height: 32px;
+    padding-left: 5px;
+  }
 }
 
 select {
