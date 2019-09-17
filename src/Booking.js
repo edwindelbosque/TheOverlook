@@ -98,8 +98,10 @@ class Booking {
       })
       return acc;
     }, [])
+    DOMupdates.displayResetBookingResults();
     DOMupdates.displayBookingResultsTitle(roomsAvailable.length, date)
     roomsAvailable.forEach(room => DOMupdates.displayBookingResults(room))
+    return roomsAvailable;
   }
 
   findBookingHistory(userId) {
@@ -129,6 +131,32 @@ class Booking {
       ? DOMupdates.displayBookAnotherRoom()
       : DOMupdates.displayBookToday()
   }
+
+  filterRoomSearch(date, roomType, numBeds, bedSize, bidet) {
+    let rooms = this.findAvailableRooms(date);
+    let layer1, layer2, layer3, layer4;
+
+    roomType !== 'undefined'
+      ? layer1 = rooms.filter(room => room.roomType === roomType)
+      : layer1 = rooms;
+
+    numBeds !== 'undefined'
+      ? layer2 = layer1.filter(room => room.numBeds === numBeds)
+      : layer2 = layer1;
+
+    bedSize !== 'undefined'
+      ? layer3 = layer2.filter(room => room.bedSize === bedSize)
+      : layer3 = layer2;
+
+    bidet !== 'undefined'
+      ? layer4 = layer3.filter(room => room.bidet === bidet)
+      : layer4 = layer3;
+
+    DOMupdates.displayBookingResultsTitle(layer4.length, date);
+    DOMupdates.displayResetBookingResults();
+    layer4.forEach(room => DOMupdates.displayBookingResults(room));
+  }
+
 }
 
 export default Booking;

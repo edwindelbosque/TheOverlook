@@ -189,26 +189,53 @@ $('#personalized-room-stats').on('click', (e) => {
 })
 
 $('#select-room-type').change(function () {
-  // $(this) references the current <select>
-  console.log($(this).val());
+  let roomType = $(this).val();
+  let numBeds = $('#select-bed-number').val() !== 'undefined'
+    ? parseInt($('#select-bed-number').val())
+    : 'undefined';
+  let bedSize = $('#select-bed-size').val();
+  let bidet = $('#select-bidet').val() !== 'undefined'
+    ? ($('#select-bidet').val() === 'true' ? true : false)
+    : 'undefined';
+
+  hotel.booking.filterRoomSearch(getToday(), roomType, numBeds, bedSize, bidet);
 })
 
 $('#select-bed-number').change(function () {
-  // $(this) references the current <select>
-  console.log($(this).val());
+  let roomType = $('#select-room-type').val();
+  let numBeds = $(this).val() !== 'undefined'
+    ? parseInt($('#select-bed-number').val())
+    : 'undefined';
+  let bedSize = $('#select-bed-size').val();
+  let bidet = $('#select-bidet').val() !== 'undefined'
+    ? ($('#select-bidet').val() === 'true' ? true : false)
+    : 'undefined';
+
+  hotel.booking.filterRoomSearch(getToday(), roomType, numBeds, bedSize, bidet);
 })
 
 $('#select-bed-size').change(function () {
-  // $(this) references the current <select>
-  console.log($(this).val());
+  let roomType = $('#select-room-type').val();
+  let numBeds = $('#select-bed-number').val() !== 'undefined'
+    ? parseInt($('#select-bed-number').val())
+    : 'undefined';
+  let bedSize = $(this).val();
+  let bidet = $('#select-bidet').val() !== 'undefined'
+    ? ($('#select-bidet').val() === 'true' ? true : false)
+    : 'undefined';
+
+  hotel.booking.filterRoomSearch(getToday(), roomType, numBeds, bedSize, bidet);
 })
 
 $('#select-bidet').change(function () {
-  // $(this) references the current <select>
-  console.log($(this).val());
-})
+  let roomType = $('#select-room-type').val();
+  let numBeds = $('#select-bed-number').val() !== 'undefined'
+    ? parseInt($('#select-bed-number').val())
+    : 'undefined';
+  let bedSize = $('#select-bed-size').val();
+  let bidet = $(this).val() !== 'undefined'
+    ? ($('#select-bidet').val() === 'true' ? true : false)
+    : 'undefined';
 
-$('#select-price-range').change(function () {
-  // $(this) references the current <select>
-  console.log($(this).val());
+  hotel.booking.filterRoomSearch(getToday(), roomType, numBeds, bedSize, bidet);
 })

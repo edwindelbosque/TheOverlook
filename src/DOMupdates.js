@@ -156,6 +156,10 @@ const DOMupdates = {
     $('#room-search-title').text(`${number} rooms available on ${date}`);
   },
 
+  displayResetBookingResults() {
+    $('#booking-results').empty();
+  },
+
   displayBookingResults(room) {
     $(`<article>
     <section class="booking-result-1">
