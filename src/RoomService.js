@@ -6,22 +6,22 @@ class RoomService {
   }
 
   getRoomServiceRevenue(date) {
-    let dailyLogs = this.roomServiceData.filter(log => log.date === date);
-    let totalRevenue = dailyLogs.reduce((acc, service) => {
+    const dailyLogs = this.roomServiceData.filter(log => log.date === date);
+    const totalRevenue = dailyLogs.reduce((acc, service) => {
       acc += service.totalCost;
       return acc;
-    }, 0)
-    DOMupdates.displayOrderRevenue(Math.round(totalRevenue))
+    }, 0);
+    DOMupdates.displayOrderRevenue(Math.round(totalRevenue));
     return Math.round(totalRevenue);
   }
 
   getDailyServices(date) {
-    DOMupdates.displayResetOrders()
-    let servicesToday = this.roomServiceData.filter(log => log.date === date)
+    DOMupdates.displayResetOrders();
+    const servicesToday = this.roomServiceData.filter(log => log.date === date)
       .map(service => service.food);
     servicesToday.forEach(order => {
       DOMupdates.displayOrdersToday(order);
-    })
+    });
     return servicesToday;
   }
 
@@ -31,7 +31,7 @@ class RoomService {
     DOMupdates.displayResultsHeader(servicesToday.length);
     servicesToday.forEach(order => {
       DOMupdates.displaySearchedOrders(order);
-    })
+    });
   }
 
   findTotalSpent(id) {
@@ -39,19 +39,19 @@ class RoomService {
     const amount = filteredLogs.reduce((acc, log) => {
       acc += log.totalCost;
       return acc;
-    }, 0)
+    }, 0);
     DOMupdates.displayUserOrderSpenditure(Math.round(amount));
   }
 
   getOrderHistory(id) {
-    DOMupdates.displayResetOrderHistory()
+    DOMupdates.displayResetOrderHistory();
     const filteredLogs = this.roomServiceData.filter(log => log.userID === id);
-    let orders = filteredLogs.map(log => {
+    const orders = filteredLogs.map(log => {
       return { date: log.date, totalCost: log.totalCost };
-    })
+    });
     orders.length > 0
       ? orders.forEach(order => DOMupdates.displayOrderHistory(order))
-      : DOMupdates.displayNoOrderHistory()
+      : DOMupdates.displayNoOrderHistory();
   }
 
   findOrderSpenditures(id, date) {
@@ -61,7 +61,7 @@ class RoomService {
       acc += log.totalCost;
       return acc;
     }, 0);
-    DOMupdates.displaySearchOrder(totalSpenditure);
+    DOMupdates.displaySearchOrder(Math.round(totalSpenditure));
   }
 
   findRoomServiceOptions() {
@@ -70,7 +70,8 @@ class RoomService {
         acc.push(food.food);
       }
       return acc;
-    }, []).forEach(food => DOMupdates.displayFoodItems(food));
+    }, [])
+      .forEach(food => DOMupdates.displayFoodItems(food));
   }
 
   findFoodPrice(foodChoice) {
@@ -87,7 +88,7 @@ class RoomService {
       date: currentDate,
       food: foodChoice,
       totalCost: selectedFood.totalCost
-    }
+    };
     this.roomServiceData.push(foodOrder);
   }
 }

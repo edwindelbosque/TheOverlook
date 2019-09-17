@@ -1,0 +1,43 @@
+.svg-icon {
+  height: 50px;
+  position: relative;
+  top: 17px;
+  width: 50px;
+}
+
+#submit-add-button,
+#submit-search-button {
+  height: 48px;
+  margin-left: -8px;
+  width: 112px;
+}
+
+#add-customer-button,
+#submit-add-button {
+  background-color: $accent-nav;
+
+  &:hover {
+    background-color: darken($accent-nav, 14%);
+  }
+
+  &:active {
+    background-color: darken($accent-nav, 20%);
+  }
+}
+
+#current-user {
+  background-color: #f2f2f2;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.322);
+  color: darken($accent-footer, 20%);
+  font-weight: 600;
+  padding: 4px 8px 0 8px;
+}
+
+#user-not-found,
+#user-already-exists {
+  color: rgb(255, 65, 51);
+  display: inline;
+  font-size: 22px;
+  margin-left: 15px;
+}

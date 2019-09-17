@@ -11,7 +11,7 @@ class Hotel {
   }
 
   getTotalDailyRevenue(date) {
-    let overallRevenue = (this.roomService.getRoomServiceRevenue(date)
+    const overallRevenue = (this.roomService.getRoomServiceRevenue(date)
       + this.booking.getBookingRevenue(date))
       .toLocaleString();
     DOMupdates.displayOverallRevenue(overallRevenue);

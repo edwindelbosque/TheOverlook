@@ -17,7 +17,7 @@ beforeEach(() => {
   booking = new Booking(bookingData, roomData);
 });
 
-afterEach(function () {
+afterEach(() => {
   chai.spy.restore(DOMupdates)
 })
 

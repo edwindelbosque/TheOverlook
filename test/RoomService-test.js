@@ -26,7 +26,7 @@ beforeEach(() => {
   roomService = new RoomService(roomServiceData);
 });
 
-afterEach(function () {
+afterEach(() => {
   chai.spy.restore(DOMupdates)
 })
 
@@ -55,7 +55,6 @@ describe('RoomService', () => {
       "Unbranded Plastic Sandwich"
     ])
   });
-
 
   describe('spies', () => {
 

@@ -80,7 +80,6 @@ const DOMupdates = {
     `).insertAfter('#booking-history');
   },
 
-
   displayBookingHistoryTotal(amount) {
     $(`
     <tr class="table-item-booking-history">

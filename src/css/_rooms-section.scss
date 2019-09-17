@@ -11,33 +11,33 @@
   width: 100%;
 
   section {
-    width: 48%;
+    align-items: center;
     background-color: $section-background;
     border-radius: 4px;
-    display: flex;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.49);
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 15px;
     padding-bottom: 20px;
+    padding-top: 15px;
+    width: 48%;
 
     h4 {
-      width: 95%;
-      text-align: center;
-      padding-bottom: 8px;
       border-bottom: 2px solid lightgray;
+      padding-bottom: 8px;
+      text-align: center;
+      width: 95%;
     }
 
     ul {
-      margin-top: 10px;
       display: flex;
       flex-direction: column;
+      margin-top: 10px;
     }
 
     li {
+      font-size: 20px;
       padding: 0;
       pointer-events: none;
-      font-size: 20px;
     }
 
     table {
@@ -48,30 +48,30 @@
 }
 
 .general-room-search {
+  align-items: flex-start;
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-  margin-top: 20px;
   margin-bottom: 0px;
+  margin-top: 20px;
+  width: 100%;
 
   section {
-    width: 48%;
-    min-height: 185px;
+    align-items: center;
     background-color: $section-background;
     border-radius: 4px;
-    display: flex;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.49);
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 15px;
+    min-height: 185px;
     padding-bottom: 15px;
+    padding-top: 15px;
+    width: 48%;
 
     h3 {
       border-bottom: 2px solid lightgray;
-      width: 95%;
-      text-align: center;
       padding-bottom: 8px;
+      text-align: center;
+      width: 95%;
     }
   }
 
@@ -85,8 +85,8 @@
     background-color: $accent-footer;
     border-radius: 4px;
     height: 45px;
-    margin-top: 5px;
     margin-bottom: 10px;
+    margin-top: 5px;
     text-align: center;
     width: 280px;
     
@@ -102,57 +102,57 @@
 }
 
 .booking-results {
-  width: 100%;
   padding-bottom: 80px;
+  width: 100%;
 
   article {
-    width: 100%;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.49);
-    padding: 0 40px;
-    height: 160px;
-    border-radius: 5px;
-    background-color: $section-background;
-    display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    background-color: $section-background;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.49);
+    display: flex;
+    height: 160px;
+    justify-content: space-evenly;
     margin-bottom: 20px;
+    padding: 0 40px;
+    width: 100%;
   }
 }
 
 .booking-result-1 {
-  width: 370px;
-  height: 98px;
   border-left: 2px lightgray solid;
+  height: 98px;
   padding-left: 10px;
+  width: 370px;
 }
 
 .booking-result-2 {
-  width: 450px;
   border-left: 2px lightgray solid;
-  padding-left: 10px;
   height: 98px;
+  padding-left: 10px;
+  width: 450px;
 }
 
 .booking-result-3 {
-  width: 300px;
-  height: 98px;
-  display: flex;
-  border: 2px solid lightgray;
-  border-radius: 8px;
-  padding: 10px;
   align-items: center;
+  border-radius: 8px;
+  border: 2px solid lightgray;
+  display: flex;
   flex-direction: column;
+  height: 98px;
+  padding: 10px;
+  width: 300px;
 
   h1 {
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
 }
 
 #booking-history {
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 }
 
 #personalized-room-stats {
@@ -160,13 +160,13 @@
 }
 
 th {
-  text-align: left;
   font-size: 20px;
+  text-align: left;
 }
 
 #book-another-button {
-  margin-top: -10px;
   background-color: #ff9595;
+  margin-top: -10px;
 
   &:hover {
     background-color: darken(#ff9595, 6%);
@@ -178,68 +178,68 @@ th {
 }
 
 .filter-bookings {
-  background-color: $section-background;
-  width: 100%;
-  display: flex;
-  border-radius: 3px;
-  flex-direction: column;
   align-items: center;
-  padding-bottom: 30px;
+  background-color: $section-background;
+  border-radius: 3px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.49);
+  display: flex;
+  flex-direction: column;
   margin-bottom: 30px;
+  padding-bottom: 30px;
+  width: 100%;
 
   header {
-    padding: 10px 0;
-    display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    width: 95%;
     border-bottom: 2px solid rgb(169, 169, 169);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0;
+    width: 95%;
   }
 
   main {
-    margin-top: 15px;
     display: flex;
-    width: 90%;
     justify-content: space-evenly;
+    margin-top: 15px;
+    width: 90%;
 
     section {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       height: 80px;
+      justify-content: space-between;
     }
 
   }
 }
 
 .filterings {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: flex-end;
 
   input {
-    width: 130px;
     font-size: 16px;
     height: 32px;
+    width: 130px;
   }
 
   button {
-    width: 65px;
     font-size: 16px;
     height: 32px;
     padding-left: 5px;
+    width: 65px;
   }
 }
 
 select {
-  height: 26px;
-  color: #545454;
-  font-size: 16px;
   border-radius: 5px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.49);
   border: none;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.49);
+  color: #545454;
   cursor: pointer;
+  font-size: 16px;
+  height: 26px;
 }
 
 .search-404 {
@@ -262,31 +262,31 @@ select {
 }
 
 .booking-result-4 {
-  height: 98px;
   border-left: 2px lightgray solid;
+  height: 98px;
   padding-left: 10px;
   width: 350px
 }
 
 .booking-result-5 {
   border-left: 2px lightgray solid;
-  padding-left: 10px;
   height: 98px;
+  padding-left: 10px;
 }
 
 .booking-result-6 {
-  width: 300px;
-  height: 98px;
-  display: flex;
-  border: 2px solid lightgray;
-  border-radius: 8px;
-  padding: 10px;
   align-items: center;
+  border-radius: 8px;
+  border: 2px solid lightgray;
+  display: flex;
   flex-direction: column;
+  height: 98px;
+  padding: 10px;
+  width: 300px;
 
   h1 {
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
 }
 

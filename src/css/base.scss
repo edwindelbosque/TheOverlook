@@ -1,24 +1,14 @@
 @import 'variables';
-@import 'main';
-@import 'customers';
+@import 'main-section';
+@import 'customers-section';
 @import 'rooms-section';
 @import 'room-service-section';
 
-// * { background-color: rgba(255,0,0,.2); }
-// * * { background-color: rgba(0,255,0,.2); }
-// * * * { background-color: rgba(0,0,255,.2); }
-// * * * * { background-color: rgba(255,0,255,.2); }
-// * * * * * { background-color: rgba(0,255,255,.2); }
-// * * * * * * { background-color: rgba(255,255,0,.2); }
-// * * * * * * * { background-color: rgba(255,0,0,.2); }
-// * * * * * * * * { background-color: rgba(0,255,0,.2); }
-// * * * * * * * * * { background-color: rgba(0,0,255,.2); }
-
 * {
   box-sizing: border-box;
+  cursor: default;
   margin: 0;
   padding: 0;
-  cursor: default;
 }
 
 body {
@@ -55,13 +45,6 @@ h4 {
   font-weight: 500;
 }
 
-.wave-image {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  width: 100%;
-}
-
 button,
 input {
   &:focus {
@@ -71,4 +54,85 @@ input {
 
 td {
   border-bottom: 1px solid gray;
+}
+
+button {
+  background: lighten($accent-footer, 5%);
+  border-radius: 4px 39px 39px 4px;
+  border: none;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.49);
+  color: #4C4C4C;
+  color: $text-color;
+  cursor: pointer;
+  font-family: AvenirNext-Medium;
+  font-size: 26px;
+  font-weight: 200;
+  height: 50px;
+  padding-left: 10px;
+  padding-top: 2px;
+  text-align: left;
+  transition: .15s; 
+  width: 280px;
+  
+    &:hover {
+      background-color: darken($accent-footer, 5%);
+      transition: .15s; 
+    }
+  
+    &:active {
+      background-color: darken($accent-footer, 10%);
+    }
+}
+  
+  input {
+    background: rgb(255, 255, 255);
+    border-radius: 39px 10px 10px 39px;
+    border-radius: 4px 4px 4px 4px;
+    border: none;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.49);
+    color: #4C4C4C;
+    color: $text-color;
+    cursor: text;
+    font-family: AvenirNext-Medium;
+    font-size: 26px;
+    font-weight: 200;
+    height: 48px;
+    margin-left: 20px;
+    padding-left: 15px;
+    padding-top: 3px;
+    transition: .15s; 
+    width: 280px;
+    }
+  
+  a {
+    color: $text-color;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+ul {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+}
+
+li {
+  border-bottom: solid 2px #00000000;
+  border-top: solid 2px #00000000;
+  color: $text-color;
+  font-family: $body-font;
+  font-size: 22px;
+  font-weight: 500;
+  list-style-type: none;
+  padding: 8px 20px;
+
+  &:hover {
+    background-color: lighten($accent-nav, 12%);
+    border-bottom-color: darken($accent-nav, 30%);
+    transition: .25s;
+  }
+}
+
+div {
+  padding: 0 8%;
 }

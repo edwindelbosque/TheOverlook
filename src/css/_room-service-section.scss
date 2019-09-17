@@ -1,26 +1,201 @@
-#get-room-service-section {
-  width: 100%;
-  height: 150px;
-  background-color: $section-background;
-  border-radius: 4px;
-  margin-bottom: 70px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.49);
-  padding: 30px;
-  display: flex;
-  align-items: center;
+#orders-today {
+  display: inline-block;
+  margin-top: 10px;
+}
 
-  select {
-    height: 50px;
-    width: 330px;
-    margin-left: 50px;
-    font-size: 20px;
+#orders-today li {
+  background-color: rgb(233, 233, 233);
+  border-radius: 6px;
+  margin: 8px 0 8px 5px;
+  padding: 3px 8px;
+  pointer-events: none;
+}
+
+.orders-main {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 30px;
+}
+
+.orders-section-2 {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    border-radius: 4px;
+    margin-left: 0px;
+    margin-top: 12px;
+    padding-left: 0;
+    text-align: center;
   }
+
+  button {
+    background-color: lighten($accent-nav, 2%);
+    border-radius: 4px;
+    height: 45px;
+    margin-top: 5px;
+    text-align: center;
+    width: 280px;
+    
+    &:hover {
+      background-color: darken($accent-nav, 10%);
+      transition: .15s; 
+    }
+  
+    &:active {
+      background-color: darken( $accent-nav, 20%);
+    }
+  }
+
+}
+
+::placeholder {
+  color: rgb(228, 228, 228);
+}
+
+.orders-section-3 ul {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  li {
+    background-color: rgb(245, 245, 245);
+    border-radius: 6px;
+    margin: 8px 0 8px 5px;
+    padding: 3px 8px;
+    pointer-events: none;
+  }
+}
+
+.orders-section-3 {
+  margin-left: 70px;
+}
+
+.search-orders-section {
+  background-color: $section-background;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.49);
+  display: flex;
+  margin-left: 90px;
+  margin-top: -15px;
+  min-height: 185px;
+  padding: 15px 30px 15px 30px;
+  width: 850px;
+}
+
+.tab-orders {
+  display: flex;
+  flex-direction: column;
+}
+
+.all-time-orders {
+  width: 175px;
+}
+
+.orders-section-5 {
+  background-color: $section-background;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.49);
+  display: flex;
+  height: 175px;
+  min-width: 690px;
+  padding: 15px 30px 15px 30px;
+  width: 60%;
+
+  input {
+    height: 47px;
+    margin-left: 0;
+    margin-top: 13px;
+    padding-left: 0;
+    text-align: center;
+    width: 250px;
+  }
+
+  button {
+    height: 48px;
+    margin-left: -10px;
+    width: 110px;
+  }
+}
+
+.search-guest-orders {
+  border-left: 2px solid darkgray;
+  margin-left: 40px;
+  padding-left: 40px 
+}
+
+#money-spent-date {
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.order-personalized {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.order-history {
+  align-items: center;
+  background-color: $section-background;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.49);
+  display: flex;
+  flex-direction: column;
+  padding: 15px 30px 15px 30px;
+  width: 38%;
 
   h4 {
-    margin: 0 40px;
+    border-bottom: 2px solid darkgray;
+    padding-bottom: 10px;
+    text-align: center;
+    width: 100%;
   }
 
-  h2 {
-    margin-left: 30px;
+  ul {
+    margin-top: 10px;
   }
+}
+
+.revenue-customer {
+  margin-bottom: 15px;
+  margin-top: -10px;
+}
+
+#order-history-list {
+  display: flex;
+  flex-direction: column;
+
+  li {
+    padding: 0;
+    pointer-events: none;
+  }
+}
+
+#get-room-service-section {
+	align-items: center;
+	background-color: $section-background;
+	border-radius: 4px;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.49);
+	display: flex;
+	height: 150px;
+	margin-bottom: 70px;
+	padding: 30px;
+	width: 100%;
+
+	select {
+		font-size: 20px;
+		height: 50px;
+		margin-left: 50px;
+		width: 330px;
+	}
+
+	h4 {
+		margin: 0 40px;
+	}
+
+	h2 {
+		margin-left: 30px;
+	}
 }

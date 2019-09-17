@@ -7,15 +7,16 @@ class Booking {
   }
 
   findRoomsAvailable(date) {
-    let percentage = `${this.bookingData
+    const percentage = `${this.bookingData
       .filter(booking => booking.date === date).length * 2}%`;
     DOMupdates.displayRoomsAvailable(percentage);
     return percentage;
   }
 
   getBookingRevenue(date) {
-    let bookedToday = this.bookingData.filter(booking => booking.date === date)
-    let dailyRevenue = bookedToday.reduce((acc, book) => {
+    const bookedToday = this.bookingData
+      .filter(booking => booking.date === date)
+    const dailyRevenue = bookedToday.reduce((acc, book) => {
       acc += this.roomData
         .find(room => room.number === book.roomNumber).costPerNight;
       return acc;
@@ -28,7 +29,7 @@ class Booking {
   }
 
   findBookingsPerDate() {
-    let bookingsPerDate = this.sortBookingDates().reduce((acc, booking) => {
+    const bookingsPerDate = this.sortBookingDates().reduce((acc, booking) => {
       if (!acc[booking.date]) {
         acc[booking.date] = [];
       }
@@ -48,10 +49,10 @@ class Booking {
   }
 
   sliceFutureDates(date) {
-    let todayIndex = this.getArrayOfDates().indexOf(date);
-    let todayAndOn = this.getArrayOfDates().slice(todayIndex);
+    const todayIndex = this.getArrayOfDates().indexOf(date);
+    const todayAndOn = this.getArrayOfDates().slice(todayIndex);
 
-    let bookingsFiltered = todayAndOn.map(day => {
+    const bookingsFiltered = todayAndOn.map(day => {
       return {
         date: day,
         bookings: this.findBookingsPerDate()[day]
@@ -77,12 +78,12 @@ class Booking {
   }
 
   findAvailableRoomNumbers(date) {
-    let availableRoomNumbers = this.roomData.map(room => room.number)
-    let occupiedRoomNumbers = this.bookingData
+    const availableRoomNumbers = this.roomData.map(room => room.number)
+    const occupiedRoomNumbers = this.bookingData
       .filter(booking => booking.date === date)
       .map(booking => booking.roomNumber);
     occupiedRoomNumbers.forEach(roomNumber => {
-      let index = availableRoomNumbers.indexOf(roomNumber);
+      const index = availableRoomNumbers.indexOf(roomNumber);
       availableRoomNumbers.splice(index, 1);
     })
     return availableRoomNumbers;
@@ -90,7 +91,7 @@ class Booking {
 
   findAvailableRooms(date) {
     const availableRoomNumbers = this.findAvailableRoomNumbers(date);
-    let roomsAvailable = this.roomData.reduce((acc, room) => {
+    const roomsAvailable = this.roomData.reduce((acc, room) => {
       availableRoomNumbers.forEach(roomNumber => {
         if (roomNumber === room.number) {
           acc.push(room);
@@ -105,16 +106,16 @@ class Booking {
   }
 
   findBookingHistory(userId) {
-    let userBookings = this.bookingData
+    const userBookings = this.bookingData
       .filter(booking => booking.userID === userId);
-    let userRooms = userBookings.map(booking => {
+    const userRooms = userBookings.map(booking => {
       return {
         date: booking.date, room: this.roomData
           .find(room => room.number === booking.roomNumber)
       }
     }).sort((a, b) => ('' + b.date).localeCompare(a.date));
     DOMupdates.displayResetBookingHistory();
-    let totalUserRevenue = userRooms.reduce((acc, room) => {
+    const totalUserRevenue = userRooms.reduce((acc, room) => {
       acc += room.room.costPerNight;
       return (Math.round(acc))
     }, 0).toLocaleString();
@@ -125,7 +126,7 @@ class Booking {
   }
 
   bookToday(userId, date) {
-    let userBookings = this.bookingData
+    const userBookings = this.bookingData
       .filter(booking => booking.userID === userId);
     userBookings.find(booking => booking.date === date)
       ? DOMupdates.displayBookAnotherRoom()
@@ -133,7 +134,7 @@ class Booking {
   }
 
   filterRoomSearch(date, roomType, numBeds, bedSize, bidet) {
-    let rooms = this.findAvailableRooms(date);
+    const rooms = this.findAvailableRooms(date);
     let layer1, layer2, layer3, layer4;
 
     roomType !== 'undefined'

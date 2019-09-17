@@ -16,8 +16,8 @@ beforeEach(() => {
   hotel = new Hotel(userData, bookingData, roomServiceData, roomData);
 });
 
-afterEach(function () {
-  chai.spy.restore(DOMupdates)
+afterEach(() => {
+  chai.spy.restore(DOMupdates);
 })
 
 describe('Hotel', () => {

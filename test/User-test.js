@@ -20,7 +20,7 @@ beforeEach(() => {
   user = new User(userData);
 });
 
-afterEach(function () {
+afterEach(() => {
   chai.spy.restore(DOMupdates)
 })
 

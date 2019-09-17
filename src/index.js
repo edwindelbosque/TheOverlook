@@ -7,6 +7,40 @@ import Hotel from './Hotel';
 
 let hotel, customerData, roomData, bookingData, roomServiceData;
 
+$('#search-customer-input').hide();
+$('#add-customer-input').hide();
+$('#submit-search-button').hide();
+$('#submit-add-button').hide();
+$('#personalized-order-section').hide();
+$('#personalized-room-stats').hide();
+$('#general-view-button').hide();
+$('#filter-bookings').hide();
+$('#food-price').text('');
+$('#get-room-service-button').hide();
+$('#get-room-service-section').hide();
+
+const displayCurrentDate = (day) => {
+  $('#date').text(`${new Date(day).toString().slice(0, 10)}`);
+}
+
+const getToday = () => {
+  let today = new Date();
+  let dd = today.getDate();
+  let mm = today.getMonth() + 1;
+  const yyyy = today.getFullYear();
+
+  if (dd < 10) {
+    dd = '0' + dd;
+  }
+
+  if (mm < 10) {
+    mm = '0' + mm;
+  }
+
+  today = `${yyyy}/${mm}/${dd}`;
+  return today;
+}
+
 displayCurrentDate(getToday());
 $('.tabs-stage div').fadeOut(100);
 $('.tabs-stage div:first').delay(100).fadeIn(100);
@@ -39,8 +73,8 @@ setTimeout(() => {
   hotel.roomService.findRoomServiceOptions();
 }, 1000);
 
-$('.tabs-nav a').on('click', function (event) {
-  event.preventDefault();
+$('.tabs-nav a').on('click', function (e) {
+  e.preventDefault();
   $('.tabs-nav li').removeClass('tab-active');
   $(this).parent().addClass('tab-active');
   $('.tabs-stage div').fadeOut(100);
@@ -48,40 +82,6 @@ $('.tabs-nav a').on('click', function (event) {
   $('#money-spent-date').delay(1000).text('');
   $('#order-customer-input').delay(1000).val('');
 })
-
-function getToday() {
-  let today = new Date();
-  let dd = today.getDate();
-  let mm = today.getMonth() + 1;
-  let yyyy = today.getFullYear();
-
-  if (dd < 10) {
-    dd = '0' + dd;
-  }
-
-  if (mm < 10) {
-    mm = '0' + mm;
-  }
-
-  today = `${yyyy}/${mm}/${dd}`;
-  return today;
-}
-
-function displayCurrentDate(day) {
-  $('#date').text(`${new Date(day).toString().slice(0, 10)}`);
-}
-
-$('#search-customer-input').hide();
-$('#add-customer-input').hide();
-$('#submit-search-button').hide();
-$('#submit-add-button').hide();
-$('#personalized-order-section').hide();
-$('#personalized-room-stats').hide();
-$('#general-view-button').hide();
-$('#filter-bookings').hide();
-$('#food-price').text('');
-$('#get-room-service-button').hide();
-$('#get-room-service-section').hide();
 
 $('#search-customer-button').on('click', () => {
   $('#search-customer-input').toggle();
@@ -138,13 +138,13 @@ $('#add-customer-input').on('keypress', (e) => {
 });
 
 $('#order-date-button').on('click', () => {
-  let inputValue = $('#order-date-input').val();
+  const inputValue = $('#order-date-input').val();
   hotel.roomService.searchOrders(inputValue);
 })
 
 $('#order-date-input').on('keypress', (e) => {
   if (e.which === 13) {
-    let inputValue = $('#order-date-input').val();
+    const inputValue = $('#order-date-input').val();
     hotel.roomService.searchOrders(inputValue);
   }
 });
@@ -161,17 +161,19 @@ $('#order-customer-input').on('keypress', (e) => {
   }
 })
 
-$('#search-bookings-button').on('click', () => {
+const findNewRoomsAvailable = () => {
   const userInput = $('#search-bookings-input').val();
-  $('#booking-results').empty()
+  $('#booking-results').empty();
   hotel.booking.findAvailableRooms(userInput);
+}
+
+$('#search-bookings-button').on('click', () => {
+  findNewRoomsAvailable();
 })
 
 $('#search-bookings-input').on('keypress', (e) => {
   if (e.which === 13) {
-    const userInput = $('#search-bookings-input').val();
-    $('#booking-results').empty();
-    hotel.booking.findAvailableRooms(userInput);
+    findNewRoomsAvailable();
   }
 })
 
@@ -187,7 +189,7 @@ $('#general-view-button').on('click', () => {
 
 $('#personalized-room-stats').on('click', (e) => {
   if (e.target.id === 'book-another-button') {
-    let dateInput = $('#search-date-booking-input').val(getToday());
+    const dateInput = $('#search-date-booking-input').val(getToday());
     $('#personalized-room-stats').fadeOut(150);
     $('#search-results').delay(150).fadeIn(150);
     $('#filter-bookings').delay(150).fadeIn(150);
@@ -200,94 +202,49 @@ $('#personalized-room-stats').on('click', (e) => {
   }
 })
 
-$('#search-date-booking-button').on('click', () => {
-  let dateInput = $('#search-date-booking-input').val();
-  let roomType = $('#select-room-type').val();
-  let numBeds = $('#select-bed-number').val() !== 'undefined'
+const filterBookings = () => {
+  const dateInput = $('#search-date-booking-input').val();
+  const roomType = $('#select-room-type').val();
+  const numBeds = $('#select-bed-number').val() !== 'undefined'
     ? parseInt($('#select-bed-number').val())
     : 'undefined';
-  let bedSize = $('#select-bed-size').val();
-  let bidet = $('#select-bidet').val() !== 'undefined'
+  const bedSize = $('#select-bed-size').val();
+  const bidet = $('#select-bidet').val() !== 'undefined'
     ? ($('#select-bidet').val() === 'true' ? true : false)
     : 'undefined';
 
   hotel.booking.filterRoomSearch(dateInput, roomType, numBeds, bedSize, bidet);
+}
+
+$('#search-date-booking-button').on('click', () => {
+  filterBookings();
 })
 
 $('#search-date-booking-input').on('keypress', (e) => {
   if (e.which === 13) {
-    let dateInput = $('#search-date-booking-input').val();
-    let roomType = $('#select-room-type').val();
-    let numBeds = $('#select-bed-number').val() !== 'undefined'
-      ? parseInt($('#select-bed-number').val())
-      : 'undefined';
-    let bedSize = $('#select-bed-size').val();
-    let bidet = $('#select-bidet').val() !== 'undefined'
-      ? ($('#select-bidet').val() === 'true' ? true : false)
-      : 'undefined';
-    hotel.booking.filterRoomSearch(dateInput, roomType, numBeds, bedSize, bidet);
+    filterBookings();
   }
 })
 
-$('#select-room-type').change(function () {
-  let dateInput = $('#search-date-booking-input').val();
-  let roomType = $(this).val();
-  let numBeds = $('#select-bed-number').val() !== 'undefined'
-    ? parseInt($('#select-bed-number').val())
-    : 'undefined';
-  let bedSize = $('#select-bed-size').val();
-  let bidet = $('#select-bidet').val() !== 'undefined'
-    ? ($('#select-bidet').val() === 'true' ? true : false)
-    : 'undefined';
-
-  hotel.booking.filterRoomSearch(dateInput, roomType, numBeds, bedSize, bidet);
+$('#select-room-type').change(() => {
+  filterBookings();
 })
 
-$('#select-bed-number').change(function () {
-  let dateInput = $('#search-date-booking-input').val();
-  let roomType = $('#select-room-type').val();
-  let numBeds = $(this).val() !== 'undefined'
-    ? parseInt($('#select-bed-number').val())
-    : 'undefined';
-  let bedSize = $('#select-bed-size').val();
-  let bidet = $('#select-bidet').val() !== 'undefined'
-    ? ($('#select-bidet').val() === 'true' ? true : false)
-    : 'undefined';
-
-  hotel.booking.filterRoomSearch(dateInput, roomType, numBeds, bedSize, bidet);
+$('#select-bed-number').change(() => {
+  filterBookings();
 })
 
-$('#select-bed-size').change(function () {
-  let dateInput = $('#search-date-booking-input').val();
-  let roomType = $('#select-room-type').val();
-  let numBeds = $('#select-bed-number').val() !== 'undefined'
-    ? parseInt($('#select-bed-number').val())
-    : 'undefined';
-  let bedSize = $(this).val();
-  let bidet = $('#select-bidet').val() !== 'undefined'
-    ? ($('#select-bidet').val() === 'true' ? true : false)
-    : 'undefined';
-
-  hotel.booking.filterRoomSearch(dateInput, roomType, numBeds, bedSize, bidet);
+$('#select-bed-size').change(() => {
+  filterBookings();
 })
 
-$('#select-bidet').change(function () {
-  let dateInput = $('#search-date-booking-input').val();
-  let roomType = $('#select-room-type').val();
-  let numBeds = $('#select-bed-number').val() !== 'undefined'
-    ? parseInt($('#select-bed-number').val())
-    : 'undefined';
-  let bedSize = $('#select-bed-size').val();
-  let bidet = $(this).val() !== 'undefined'
-    ? ($('#select-bidet').val() === 'true' ? true : false)
-    : 'undefined';
-
-  hotel.booking.filterRoomSearch(dateInput, roomType, numBeds, bedSize, bidet);
+$('#select-bidet').change(() => {
+  filterBookings();
 })
 
 $('#search-results').on('click', (e) => {
-  let dateInput = getToday();
-  let roomNumber = parseInt($(e.target).attr('data'));
+  const dateInput = $('#search-date-booking-input').val()
+  const roomNumber = parseInt($(e.target).attr('data'));
   if (roomNumber) {
     hotel.bookRoom(roomNumber, dateInput);
     hotel.booking.findRoomsAvailable(getToday());
@@ -296,8 +253,8 @@ $('#search-results').on('click', (e) => {
   }
 })
 
-$('#room-service-select').change(function () {
-  const foodChoice = $(this).val();
+$('#room-service-select').change(() => {
+  const foodChoice = $('#room-service-select').val();
   if (foodChoice !== 'undefined') {
     const price = hotel.roomService.findFoodPrice(foodChoice);
     $('#get-room-service-button').show();
