@@ -22,7 +22,7 @@
     width: 48%;
 
     h4 {
-      border-bottom: 2px solid lightgray;
+      border-bottom: 2px solid darken($section-background, 16%);
       padding-bottom: 8px;
       text-align: center;
       width: 95%;
@@ -68,7 +68,7 @@
     width: 48%;
 
     h3 {
-      border-bottom: 2px solid lightgray;
+      border-bottom: 2px solid darken($section-background, 16%);
       padding-bottom: 8px;
       text-align: center;
       width: 95%;
@@ -120,14 +120,14 @@
 }
 
 .booking-result-1 {
-  border-left: 2px lightgray solid;
+  border-left: 2px darken($section-background, 16%) solid;
   height: 98px;
   padding-left: 10px;
   width: 370px;
 }
 
 .booking-result-2 {
-  border-left: 2px lightgray solid;
+  border-left: 2px darken($section-background, 16%) solid;
   height: 98px;
   padding-left: 10px;
   width: 450px;
@@ -136,7 +136,7 @@
 .booking-result-3 {
   align-items: center;
   border-radius: 8px;
-  border: 2px solid lightgray;
+  border: 2px solid darken($section-background, 16%);
   display: flex;
   flex-direction: column;
   height: 98px;
@@ -165,15 +165,15 @@ th {
 }
 
 #book-another-button {
-  background-color: #ff9595;
+  background-color: saturate(lighten($important-color, 18%), 40%);
   margin-top: -10px;
 
   &:hover {
-    background-color: darken(#ff9595, 6%);
+    background-color: saturate(lighten($important-color, 10%), 30%);
   }
 
   &:active {
-    background-color: darken(#ff9595, 12%);
+    background-color: saturate(lighten($important-color, 5%), 20%);
   }
 }
 
@@ -190,7 +190,7 @@ th {
 
   header {
     align-items: center;
-    border-bottom: 2px solid rgb(169, 169, 169);
+    border-bottom: 2px solid darken($section-background, 16%);
     display: flex;
     justify-content: space-evenly;
     padding: 10px 0;
@@ -255,6 +255,15 @@ select {
 
 .book-room {
   width: 100px;
+  background-color: lighten($accent-nav, 2%);
+
+  &:hover {
+    background-color: darken($accent-nav, 10%);
+  }
+
+  &:active {
+    background-color: darken($accent-nav, 18%);
+  }
 }
 
 .select-room-article {
@@ -262,14 +271,14 @@ select {
 }
 
 .booking-result-4 {
-  border-left: 2px lightgray solid;
+  border-left: 2px darken($section-background, 16%);
   height: 98px;
   padding-left: 10px;
   width: 350px
 }
 
 .booking-result-5 {
-  border-left: 2px lightgray solid;
+  border-left: 2px darken($section-background, 16%);
   height: 98px;
   padding-left: 10px;
 }
@@ -277,7 +286,7 @@ select {
 .booking-result-6 {
   align-items: center;
   border-radius: 8px;
-  border: 2px solid lightgray;
+  border: 2px solid darken($section-background, 16%);
   display: flex;
   flex-direction: column;
   height: 98px;

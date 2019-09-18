@@ -25,15 +25,6 @@
   }
 }
 
-#current-user {
-  background-color: #f2f2f2;
-  border-radius: 4px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.322);
-  color: darken($accent-footer, 20%);
-  font-weight: 600;
-  padding: 4px 8px 0 8px;
-}
-
 #user-not-found,
 #user-already-exists {
   color: rgb(255, 65, 51);

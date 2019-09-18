@@ -53,7 +53,7 @@ input {
 }
 
 td {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid darken($section-background, 16%);
 }
 
 button {
