@@ -21,7 +21,7 @@ This is a hotel management tool for hotel staff to manage activities like:
 
 ## Screenshot
 
-![](https://user-images.githubusercontent.com/48811985/65086870-f895b180-d9a2-11e9-9e09-9a7c55314eab.gif)
+![](https://user-images.githubusercontent.com/48811985/65099662-2d136880-d9b7-11e9-954a-1fb5db27c78c.gif)
 <details>
  <summary>Testing Suite w/ Mocha, Chai & Spies</summary>
 <img width="601" src="https://user-images.githubusercontent.com/48811985/65086593-e9faca80-d9a1-11e9-9876-09e86e868111.png">
