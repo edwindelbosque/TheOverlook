@@ -2,7 +2,12 @@
 
 ## Summary
 
-This is a hotel management tool for hotel staff to manage activities like customer details, booking details for different types of rooms, unbooking rooms, and calculating/showing a customer’s total bill.
+This is a hotel management tool for hotel staff to manage activities like:
+- Adding and looking for customer details
+- Booking and filtering different types of rooms
+- Unbooking rooms
+- Making room service orders
+- Calculating/showing a customer's total bill.
 
 ### Check the application [here!](https://edwindelbosque.github.io/TheOverlook/)
 
