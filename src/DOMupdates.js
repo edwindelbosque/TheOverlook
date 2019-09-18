@@ -6,7 +6,7 @@ const DOMupdates = {
   },
 
   displayOverallRevenue(overallRevenue) {
-    $('#overall-revenue').text(overallRevenue);
+    $('#overall-revenue').text(`$${overallRevenue}`);
   },
 
   displayUser(name) {
