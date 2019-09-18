@@ -3,6 +3,7 @@ import './css/base.scss';
 import './images/favicon.png';
 import './images/add-icon.svg';
 import './images/search-icon.svg';
+import './images/wave-image.png';
 import Hotel from './Hotel';
 
 let hotel;

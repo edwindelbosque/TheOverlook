@@ -2,23 +2,25 @@
 <html lang="en-US">
 
 <head>
-  <title>The Overlook :: Administration</title>
+  <title>The Overlook Manager</title>
   <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
 </head>
 
 <body>
-  <nav>
-    <h2>The Overlook</h2>
-    <ul class="tabs-nav">
-      <li><a href="#tab-main">Main</a></li>
-      <li><a href="#tab-orders">Orders</a></li>
-      <li><a href="#tab-rooms">Rooms</a></li>
-      <li><a href="#tab-customers">Customers</a></li>
-    </ul>
-  </nav>
-  <section class="customer-tab">
-    <h3>Currently Viewing — <span id="current-user">General View</span></h3>
-    <h4 class="general-view-button" id="general-view-button">+</h4>
+  <section class="top-header">
+    <nav>
+      <h2>The Overlook Hotel</h2>
+      <ul class="tabs-nav">
+        <li><a href="#tab-main">Main</a></li>
+        <li><a href="#tab-orders">Orders</a></li>
+        <li><a href="#tab-rooms">Rooms</a></li>
+        <li><a href="#tab-customers">Customers</a></li>
+      </ul>
+    </nav>
+    <section class="customer-tab">
+      <h3>Currently Viewing — <span id="current-user">All customers</span></h3>
+      <h4 class="general-view-button" id="general-view-button">+</h4>
+    </section>
   </section>
   <section class="tabs-stage">
     <div id="tab-main">
@@ -187,14 +189,14 @@
     <div id="tab-customers">
       <h1>Customers</h1>
       <img class=" svg-icon" src="./images/search-icon.svg">
-      <button id="search-customer-button">Search guest</button>
+      <button id="search-customer-button">Search customer</button>
       <input placeholder="e.g. Khalid Williams" id="search-customer-input">
       <button id="submit-search-button">Submit</button>
       <p id="user-not-found"></p>
       <br>
       <br>
       <img class="svg-icon" src="./images/add-icon.svg">
-      <button id="add-customer-button">Add guest</button>
+      <button id="add-customer-button">Add customer</button>
       <input placeholder="e.g. Brittany Storoz" id="add-customer-input">
       <button id="submit-add-button">Submit</button>
       <p id="user-already-exists"></p>
